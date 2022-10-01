@@ -91,7 +91,7 @@ export default {
           body: post.body,
         })
         .then(() => {
-          setTimeout(() => this.posts.document.location.reload(true), 1000);
+          setTimeout(() => document.location.reload(true), 1000);
         });
     },
     removePost(post) {
