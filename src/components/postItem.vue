@@ -73,19 +73,18 @@ export default {
 }
 .btn-delete-post {
   padding: 15px 20px !important;
-  border: 2px solid #c21e56 !important;
   color: #fff !important;
-  background: #fff !important;
+  background: #c21e56 !important;
   font-size: 15px !important;
   font-weight: 600 !important;
   cursor: pointer !important;
-  color: #c21e56 !important;
   transition: 0.3s ease-in-out !important;
   border-radius: 10px !important;
 }
 
 .btn-delete-post:hover {
-  background: #c21e56 !important;
+  box-shadow: 0 15px 20px #740127;
+  background: #df1659 !important;
   color: #fff !important;
 }
 </style>

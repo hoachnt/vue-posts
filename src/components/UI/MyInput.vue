@@ -21,6 +21,8 @@ export default {
 </script>
 <style scoped>
 .input {
+  background: #000;
+  color: #fff;
   padding: 10px;
   min-width: 100%;
   border: 2px solid #42b883;

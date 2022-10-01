@@ -48,14 +48,14 @@
 <script>
 import postForm from "@/components/postForm.vue";
 import postList from "@/components/postList.vue";
-import postPages from "@/components/postPages.vue";
+import MySelect from "@/components/UI/MySelect.vue"
 import axios from "axios";
 
 export default {
   components: {
     postList,
     postForm,
-    postPages,
+    MySelect
   },
   data() {
     return {

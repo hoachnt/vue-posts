@@ -24,4 +24,8 @@ export default {
 }
 </script>
 <style scoped>
+  .select {
+    background: #000;
+    color: #fff;
+  }
 </style>
