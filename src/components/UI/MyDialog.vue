@@ -30,14 +30,21 @@ export default {
   right: 0;
   background: rgba(0, 0, 0, 0.5);
   display: flex;
+  align-items: center;
+  justify-content: center;
   z-index: 99;
 }
 
 .dialog__content {
-  margin: auto;
-  background: #fff;
-  border-radius: 12px;
-  width: max(400px);
-  padding: 20px;
+  position: absolute;
+  background: var(--main-background-color);
+  border-radius: 20px 20px;
+  min-width: 750px;
+  padding: 10px;
+}
+@media screen and (max-width: 785px) {
+  .dialog__content {
+    min-width: 100%;
+  }
 }
 </style>

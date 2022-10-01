@@ -1,11 +1,16 @@
 <template>
   <div v-if="this.posts.length > 0">
-    <h2>Posts list</h2>
     <transition-group name="post-list">
-      <post-item v-for="post in posts" :post="post" :key="post.id" @remove="$emit('remove', post)" />
+      <post-item
+        v-for="post in posts"
+        :post="post"
+        :key="post.id"
+        @remove="$emit('remove', post)"
+        style="will-change: transform"
+      />
     </transition-group>
   </div>
-  <h2 v-else style="color: #c21e56; text-align: center;">
+  <h2 v-else style="color: #c21e56; text-align: center; display: block">
     POST LIST IS EMPTY!
   </h2>
 </template>
@@ -27,12 +32,15 @@ export default {
 <style scoped>
 .post-list-enter-active,
 .post-list-leave-active {
-  transition: .5s ease-in-out;
+  transition: 0.4s ease-in-out;
 }
 
 .post-list-enter-from,
 .post-list-leave-to {
   opacity: 0;
-  transform: translateX(100%);
+  transform: translateY(-100%);
+}
+.post-list-move {
+  transition: transform 0.4s ease-in-out;
 }
 </style>
