@@ -44,7 +44,6 @@ export default {
 }
 .post {
   padding: 15px;
-  border: 2px solid #42b883;
   display: flex;
   flex-direction: column;
   z-index: 1;

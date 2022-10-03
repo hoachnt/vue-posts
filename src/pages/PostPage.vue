@@ -3,6 +3,7 @@
     <div>
       <h1>Posts</h1>
       <my-input
+        v-focus
         v-model:value="searchQuery"
         placeholder="Search..."
         style="padding: 10px 0; border-left: 0; border-right: 0"
@@ -34,7 +35,7 @@
           Posts Loading...
         </div>
       </transition>
-      <div ref="observer" class="observer"></div>
+      <div v-intersection="loadMorePosts" class="observer"></div>
       <!-- <div class="page__wrapper">
         <post-pages :pages="totalPages" :page="page" @change="changePage" />
       </div> -->
@@ -67,10 +68,11 @@ export default {
       selectedSort: "",
       searchQuery: "",
       page: 1,
-      limit: 10,
+      limit: 1,
       metaAll: 0,
       meta: "total_count",
       totalPages: 0,
+      serverUrl: "http://localhost:8055/items/posts",
       sortOptions: [
         { value: "title", name: "Title" },
         { value: "body", name: "Description" },
@@ -86,7 +88,7 @@ export default {
       this.dialogVisible = false;
 
       return axios
-        .post("http://localhost:8055/items/posts", {
+        .post(this.serverUrl, {
           title: post.title,
           body: post.body,
         })
@@ -95,11 +97,9 @@ export default {
         });
     },
     removePost(post) {
-      let serverUrl = "http://localhost:8055/items/posts";
-
       this.posts = this.posts.filter((p) => p.id !== post.id);
 
-      return axios.delete(`${serverUrl}/${post.id}`);
+      return axios.delete(`${this.serverUrl}/${post.id}`);
     },
     showDialog() {
       this.dialogVisible = true;
@@ -107,14 +107,11 @@ export default {
     changePage(pageNumber) {
       this.page = pageNumber;
     },
-    openPost() {
-
-    },
     async fetchPosts() {
       try {
         this.isPostLoading = true;
 
-        const response = await axios.get("http://localhost:8055/items/posts", {
+        const response = await axios.get(this.serverUrl, {
           params: {
             page: this.page,
             limit: this.limit,
@@ -127,8 +124,6 @@ export default {
         );
         this.posts = await response.data.data;
         this.metaAll = response.data.meta.total_count;
-
-        this.reversePosts();
       } catch (error) {
         alert(error.message);
 
@@ -141,19 +136,13 @@ export default {
       try {
         this.page += 1;
 
-        const response = await axios.get("http://localhost:8055/items/posts", {
+        const response = await axios.get(this.serverUrl, {
           params: {
             page: this.page,
             limit: this.limit,
-            meta: this.meta,
           },
         });
-
-        this.totalPages = Math.ceil(
-          response.data.meta.total_count / this.limit
-        );
         this.posts = await [...this.posts, ...response.data.data];
-        this.reversePosts();
       } catch (error) {
         alert(error.message, error.name);
 
@@ -163,21 +152,7 @@ export default {
   },
   mounted() {
     this.fetchPosts();
-    this.reversePosts();
     this.root = document.documentElement;
-
-    const options = {
-      rootMargin: "0px",
-      threshold: 1.0,
-    };
-    const callback = (entries, observer) => {
-      if (entries[0].isIntersecting && this.page < this.totalPages) {
-        this.loadMorePosts();
-      }
-    };
-    const observer = new IntersectionObserver(callback, options);
-
-    observer.observe(this.$refs.observer);
   },
   computed: {
     sortedPosts() {

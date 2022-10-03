@@ -2,6 +2,7 @@
   <form @submit.prevent>
     <h2 style="color: var(--main-text-color)">Create Post</h2>
     <my-input
+      v-focus
       v-model:value="post.title"
       type="text"
       placeholder="Title"
