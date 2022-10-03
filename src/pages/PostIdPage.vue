@@ -28,7 +28,7 @@ export default {
     },
     async fetchPost() {
       try {
-        const response = await axios.get("http://localhost:8055/items/posts");
+        const response = await axios.get("http://91.105.198.245/items/posts");
 
         this.posts = response.data.data;
 

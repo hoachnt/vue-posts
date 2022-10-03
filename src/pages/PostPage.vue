@@ -72,7 +72,7 @@ export default {
       metaAll: 0,
       meta: "total_count",
       totalPages: 0,
-      serverUrl: "http://localhost:8055/items/posts",
+      serverUrl: "http://91.105.198.245/items/posts",
       sortOptions: [
         { value: "title", name: "Title" },
         { value: "body", name: "Description" },
