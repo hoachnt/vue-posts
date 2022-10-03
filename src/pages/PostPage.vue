@@ -20,7 +20,7 @@
       </div>
       <transition name="modal-show">
         <my-dialog v-model:show="dialogVisible" style="will-change: transform">
-          <post-form @create="createPost"/>
+          <post-form @create="createPost" />
         </my-dialog>
       </transition>
       <transition>
@@ -49,14 +49,14 @@
 <script>
 import postForm from "@/components/postForm.vue";
 import postList from "@/components/postList.vue";
-import MySelect from "@/components/UI/MySelect.vue"
+import MySelect from "@/components/UI/MySelect.vue";
 import axios from "axios";
 
 export default {
   components: {
     postList,
     postForm,
-    MySelect
+    MySelect,
   },
   data() {
     return {
@@ -125,9 +125,6 @@ export default {
         this.posts = await response.data.data;
         this.metaAll = response.data.meta.total_count;
       } catch (error) {
-        alert(error.message);
-
-        document.location.reload(true);
       } finally {
         setTimeout(() => (this.isPostLoading = false), 0);
       }
@@ -143,11 +140,7 @@ export default {
           },
         });
         this.posts = await [...this.posts, ...response.data.data];
-      } catch (error) {
-        alert(error.message, error.name);
-
-        document.location.reload(true);
-      }
+      } catch (error) {}
     },
   },
   mounted() {

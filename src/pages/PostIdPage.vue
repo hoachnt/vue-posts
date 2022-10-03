@@ -16,7 +16,7 @@ import axios from "axios";
 import postItem from "@/components/postItem.vue";
 
 export default {
-  components: {postItem},
+  components: { postItem },
   data() {
     return {
       posts: [],
@@ -24,7 +24,7 @@ export default {
   },
   methods: {
     filterPost() {
-      this.posts = this.posts.filter(p => p.id == this.$route.params.id)
+      this.posts = this.posts.filter((p) => p.id == this.$route.params.id);
     },
     async fetchPost() {
       try {
@@ -32,12 +32,8 @@ export default {
 
         this.posts = response.data.data;
 
-        this.filterPost()
-      } catch (error) {
-        alert(error);
-
-        document.location.reload(true);
-      }
+        this.filterPost();
+      } catch (error) {}
     },
   },
   mounted() {
