@@ -73,7 +73,6 @@ export default {
   color: #2ee59d;
 }
 .navbar__btn > button:hover {
-  transform: none;
   box-shadow: none;
   background: none;
 }

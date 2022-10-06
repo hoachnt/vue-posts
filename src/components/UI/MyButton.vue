@@ -28,6 +28,6 @@ export default {
   background: linear-gradient(90deg, #2EE59D, #2EE59D);
   box-shadow: 0 15px 20px rgba(46, 229, 157, .4);
   color: white;
-  transform: translateY(-7px)
+  min-width: 180px;
 }
 </style>

@@ -50,6 +50,13 @@ export default {
   color: var(--main-text-color);
   margin: 10px;
 }
+.post:hover .buttons {
+  max-height: 53px;
+  opacity: 1;
+}
+.post:hover .buttons > button {
+  display: block;
+}
 .post-main {
   min-width: 100%;
 }
@@ -62,13 +69,21 @@ export default {
 
 .buttons {
   position: relative;
-  min-height: 53px;
   margin-top: 20px;
   display: flex;
   justify-content: flex-end;
+  opacity: 0;
+  transition: 0.3s ease-in-out;
+  max-height: 0px;
 }
 .buttons > button {
   margin: 0 5px;
+  flex: 1;
+  display: none;
+  transition: .3 ease-in-out;
+}
+.buttons > button:hover {
+  flex: 2;
 }
 .btn-delete-post {
   padding: 15px 20px !important;
@@ -80,7 +95,6 @@ export default {
   transition: 0.3s ease-in-out !important;
   border-radius: 10px !important;
 }
-
 .btn-delete-post:hover {
   box-shadow: 0 15px 20px #740127;
   background: #df1659 !important;

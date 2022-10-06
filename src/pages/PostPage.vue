@@ -4,7 +4,8 @@
       <h1>Posts</h1>
       <my-input
         v-focus
-        v-model:value="searchQuery"
+        :model-value="searchQuery"
+        @update:model-value="setSearchQuery"
         placeholder="Search..."
         style="padding: 10px 0; border-left: 0; border-right: 0"
       />
@@ -14,7 +15,8 @@
         >
         <my-select
           class="select"
-          v-model="selectedSort"
+          :model-value="selectedSort"
+          @update:model-value="setSelectedSort"
           :options="sortOptions"
         />
       </div>
@@ -51,6 +53,7 @@ import postForm from "@/components/postForm.vue";
 import postList from "@/components/postList.vue";
 import MySelect from "@/components/UI/MySelect.vue";
 import axios from "axios";
+import { mapState, mapGetters, mapActions, mapMutations } from "vuex";
 
 export default {
   components: {
@@ -59,27 +62,18 @@ export default {
     MySelect,
   },
   data() {
-    return {
-      posts: [],
-      dialogVisible: false,
-      isPostLoading: false,
-      dark: false,
-      root: null,
-      selectedSort: "",
-      searchQuery: "",
-      page: 1,
-      limit: 1,
-      metaAll: 0,
-      meta: "total_count",
-      totalPages: 0,
-      serverUrl: "http://91.105.198.56/items/posts",
-      sortOptions: [
-        { value: "title", name: "Title" },
-        { value: "body", name: "Description" },
-      ],
-    };
+    return { dialogVisible: false };
   },
   methods: {
+    ...mapActions({
+      loadMorePosts: "post/loadMorePosts",
+      fetchPosts: "post/fetchPosts",
+    }),
+    ...mapMutations({
+      setPage: "post/setPage",
+      setSearchQuery: "post/setSearchQuery",
+      setSelectedSort: "post/setSelectedSort",
+    }),
     reversePosts() {
       this.posts.reverse();
     },
@@ -107,62 +101,30 @@ export default {
     changePage(pageNumber) {
       this.page = pageNumber;
     },
-    async fetchPosts() {
-      try {
-        this.isPostLoading = true;
-
-        const response = await axios.get(this.serverUrl, {
-          params: {
-            page: this.page,
-            limit: this.limit,
-            meta: this.meta,
-          },
-        });
-
-        this.totalPages = Math.ceil(
-          response.data.meta.total_count / this.limit
-        );
-        this.posts = await response.data.data;
-        this.metaAll = response.data.meta.total_count;
-      } catch (error) {
-      } finally {
-        setTimeout(() => (this.isPostLoading = false), 0);
-      }
-    },
-    async loadMorePosts() {
-      try {
-        this.page += 1;
-
-        const response = await axios.get(this.serverUrl, {
-          params: {
-            page: this.page,
-            limit: this.limit,
-          },
-        });
-        this.posts = await [...this.posts, ...response.data.data];
-      } catch (error) {}
-    },
   },
   mounted() {
     this.fetchPosts();
     this.root = document.documentElement;
   },
   computed: {
-    sortedPosts() {
-      return [...this.posts].sort((post1, post2) =>
-        post1[this.selectedSort]?.localeCompare(post2[this.selectedSort])
-      );
-    },
-    searchedPosts() {
-      return this.sortedPosts.filter((post) =>
-        post.title.toLowerCase().includes(this.searchQuery.toLowerCase())
-      );
-    },
-    getIdFromMeta() {
-      this.fetchPosts();
-
-      return this.metaAll;
-    },
+    ...mapState({
+      posts: (state) => state.post.posts,
+      isPostLoading: (state) => state.post.isPostLoading,
+      dark: (state) => state.post.dark,
+      selectedSort: (state) => state.post.selectedSort,
+      searchQuery: (state) => state.post.searchQuery,
+      page: (state) => state.post.page,
+      limit: (state) => state.post.limit,
+      metaAll: (state) => state.post.metaAll,
+      meta: (state) => state.post.meta,
+      totalPages: (state) => state.post.totalPages,
+      serverUrl: (state) => state.post.serverUrl,
+      sortOptions: (state) => state.post.sortOptions
+    }),
+    ...mapGetters({
+      sortedPosts: "post/sortedPosts",
+      searchedPosts: "post/searchedPosts",
+    }),
   },
   watch: {
     // page() {
