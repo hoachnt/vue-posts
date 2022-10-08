@@ -14,7 +14,7 @@ export const postModule = {
     meta: "total_count",
     totalPages: 0,
     serverUrl:
-      "http://91.105.198.56/items/posts",
+      "https://b876ad7f-dd71-4ed3-829a-b2488d40b627.selcdn.net/items/posts",
     sortOptions: [
       { value: "title", name: "Title" },
       { value: "body", name: "Description" },
