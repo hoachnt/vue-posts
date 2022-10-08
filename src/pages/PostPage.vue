@@ -4,8 +4,8 @@
       <h1>Posts</h1>
       <my-input
         v-focus
-        :model-value="searchQuery"
-        @update:model-value="setSearchQuery"
+        :value="searchQuery"
+        @update:value="setSearchQuery"
         placeholder="Search..."
         style="padding: 10px 0; border-left: 0; border-right: 0"
       />
@@ -119,7 +119,7 @@ export default {
       meta: (state) => state.post.meta,
       totalPages: (state) => state.post.totalPages,
       serverUrl: (state) => state.post.serverUrl,
-      sortOptions: (state) => state.post.sortOptions
+      sortOptions: (state) => state.post.sortOptions,
     }),
     ...mapGetters({
       sortedPosts: "post/sortedPosts",

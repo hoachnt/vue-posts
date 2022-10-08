@@ -9,12 +9,12 @@ export const postModule = {
     selectedSort: "",
     searchQuery: "",
     page: 1,
-    limit: 2,
+    limit: 10,
     metaAll: 0,
     meta: "total_count",
     totalPages: 0,
     serverUrl:
-      "https://b876ad7f-dd71-4ed3-829a-b2488d40b627.selcdn.net/items/posts",
+      "http://91.105.198.56/items/posts",
     sortOptions: [
       { value: "title", name: "Title" },
       { value: "body", name: "Description" },
@@ -56,6 +56,8 @@ export const postModule = {
     async fetchPosts({ state, commit }) {
       try {
         commit("setPostLoading", true);
+        commit("setPage", state.page = 1);
+
 
         const response = await axios.get(state.serverUrl, {
           params: {
