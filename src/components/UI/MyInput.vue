@@ -25,8 +25,10 @@ export default {
   color: #fff;
   padding: 10px;
   min-width: 100%;
+  min-height: 54px;
   border: 2px solid #42b883;
   margin: 5px 0;
   transition: 0.3s ease-in-out;
+  border-radius: 10px;
 }
 </style>

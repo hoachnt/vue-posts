@@ -75,6 +75,7 @@ export default {
 .navbar__btn > button:hover {
   box-shadow: none;
   background: none;
+  min-width: 130px !important;
 }
 .activeBtn {
   position: absolute;

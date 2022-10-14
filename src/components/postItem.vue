@@ -49,6 +49,7 @@ export default {
   z-index: 1;
   color: var(--main-text-color);
   margin: 10px;
+  border: 1px solid #3e3c3c;
 }
 .post:hover .buttons {
   max-height: 53px;

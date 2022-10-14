@@ -9,12 +9,11 @@ export const postModule = {
     selectedSort: "",
     searchQuery: "",
     page: 1,
-    limit: 10,
+    limit: 1,
     metaAll: 0,
     meta: "total_count",
     totalPages: 0,
-    serverUrl:
-      "https://b876ad7f-dd71-4ed3-829a-b2488d40b627.selcdn.net/items/posts",
+    serverUrl: "https://b876ad7f-dd71-4ed3-829a-b2488d40b627.selcdn.net/items/posts",
     sortOptions: [
       { value: "title", name: "Title" },
       { value: "body", name: "Description" },
@@ -53,48 +52,22 @@ export const postModule = {
     },
   },
   actions: {
-    async fetchPosts({ state, commit }) {
-      try {
-        commit("setPostLoading", true);
-        commit("setPage", state.page = 1);
+    // async loadMorePosts({ state, commit }) {
+    //   try {
+    //     commit("setPage", (state.page += 1));
 
+    //     const response = await axios.get(state.serverUrl, {
+    //       params: {
+    //         page: state.page,
+    //         limit: state.limit,
+    //       },
+    //     });
 
-        const response = await axios.get(state.serverUrl, {
-          params: {
-            page: state.page,
-            limit: state.limit,
-            meta: state.meta,
-          },
-        });
-
-        commit(
-          "setTotalPages",
-          Math.ceil(response.data.meta.total_count / state.limit)
-        );
-        commit("setPosts", response.data.data);
-        state.metaAll = response.data.meta.total_count;
-      } catch (error) {
-        document.location.reload(true);
-      } finally {
-        setTimeout(() => commit("setPostLoading", false), 0);
-      }
-    },
-    async loadMorePosts({ state, commit }) {
-      try {
-        commit("setPage", state.page += 1);
-
-        const response = await axios.get(state.serverUrl, {
-          params: {
-            page: state.page,
-            limit: state.limit,
-          },
-        });
-
-        commit("setPosts", [...state.posts, ...response.data.data]);
-      } catch (error) {
-        document.location.reload(true);
-      }
-    },
+    //     commit("setPosts", [...state.posts, ...response.data.data]);
+    //   } catch (error) {
+    //     document.location.reload(true);
+    //   }
+    // },
   },
   namespaced: true,
 };

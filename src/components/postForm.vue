@@ -68,7 +68,7 @@ h2 {
   margin-bottom: 10px;
 }
 .btn {
-  margin-top: 20px;
+  margin-top: 5px;
 }
 .input-modal {
   min-width: auto;

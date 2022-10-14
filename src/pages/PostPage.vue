@@ -2,21 +2,14 @@
   <transition>
     <div>
       <h1>Posts</h1>
-      <my-input
-        v-focus
-        :value="searchQuery"
-        @update:value="setSearchQuery"
-        placeholder="Search..."
-        style="padding: 10px 0; border-left: 0; border-right: 0"
-      />
+      <my-input v-focus :value="searchQuery" placeholder="Search..." />
       <div class="app__btns">
         <my-button @click="showDialog" class="create-post"
           >Create Post</my-button
         >
         <my-select
+          v-model="selectedSort"
           class="select"
-          :model-value="selectedSort"
-          @update:model-value="setSelectedSort"
           :options="sortOptions"
         />
       </div>
@@ -54,6 +47,9 @@ import postList from "@/components/postList.vue";
 import MySelect from "@/components/UI/MySelect.vue";
 import axios from "axios";
 import { mapState, mapGetters, mapActions, mapMutations } from "vuex";
+import usePosts from "@/hooks/usePosts";
+import useSortedPosts from "@/hooks/useSortedPosts";
+import useSearchedPosts from "@/hooks/useSearchedPosts";
 
 export default {
   components: {
@@ -64,10 +60,36 @@ export default {
   data() {
     return { dialogVisible: false };
   },
+  setup(props) {
+    const {
+      posts,
+      totalPages,
+      isPostLoading,
+      page,
+      meta,
+      serverUrl,
+      loadMorePosts,
+    } = usePosts(10);
+    const { selectedSort, sortedPosts } = useSortedPosts(posts);
+    const { searchQuery, searchedPosts } = useSearchedPosts(sortedPosts);
+
+    return {
+      posts,
+      totalPages,
+      isPostLoading,
+      page,
+      meta,
+      serverUrl,
+      loadMorePosts,
+      selectedSort,
+      sortedPosts,
+      searchQuery,
+      searchedPosts,
+    };
+  },
   methods: {
     ...mapActions({
-      loadMorePosts: "post/loadMorePosts",
-      fetchPosts: "post/fetchPosts",
+      // loadMorePosts: "post/loadMorePosts",
     }),
     ...mapMutations({
       setPage: "post/setPage",
@@ -103,27 +125,20 @@ export default {
     },
   },
   mounted() {
-    this.fetchPosts();
     this.root = document.documentElement;
   },
   computed: {
     ...mapState({
-      posts: (state) => state.post.posts,
-      isPostLoading: (state) => state.post.isPostLoading,
       dark: (state) => state.post.dark,
-      selectedSort: (state) => state.post.selectedSort,
-      searchQuery: (state) => state.post.searchQuery,
-      page: (state) => state.post.page,
-      limit: (state) => state.post.limit,
+      // selectedSort: (state) => state.post.selectedSort,
+      // searchQuery: (state) => state.post.searchQuery,
       metaAll: (state) => state.post.metaAll,
-      meta: (state) => state.post.meta,
       totalPages: (state) => state.post.totalPages,
-      serverUrl: (state) => state.post.serverUrl,
       sortOptions: (state) => state.post.sortOptions,
     }),
     ...mapGetters({
-      sortedPosts: "post/sortedPosts",
-      searchedPosts: "post/searchedPosts",
+      // sortedPosts: "post/sortedPosts",
+      // searchedPosts: "post/searchedPosts",
     }),
   },
   watch: {
@@ -181,7 +196,6 @@ export default {
 body {
   background: var(--main-background-color);
 }
-
 .create-post {
   width: max(70%);
   margin-right: 20px;
