@@ -103,10 +103,14 @@ export default {
       this.posts.unshift(post);
       this.dialogVisible = false;
 
-      return axios.post(this.serverUrl, {
-        title: post.title,
-        body: post.body,
-      });
+      return axios
+        .post(this.serverUrl, {
+          title: post.title,
+          body: post.body,
+        })
+        .then(() => {
+          setTimeout(() => document.location.reload(true), 1000);
+        });
     },
     removePost(post) {
       this.posts = this.posts.filter((p) => p.id !== post.id);
