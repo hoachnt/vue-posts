@@ -50,6 +50,7 @@ export default {
   color: var(--main-text-color);
   margin: 10px;
   border: 1px solid #3e3c3c;
+  user-select: none;
 }
 .post:hover .buttons {
   max-height: 53px;
