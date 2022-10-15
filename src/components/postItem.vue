@@ -54,6 +54,7 @@ export default {
 .post:hover .buttons {
   max-height: 53px;
   opacity: 1;
+  transform: scale(1);
 }
 .post:hover .buttons > button {
   display: block;
@@ -76,6 +77,7 @@ export default {
   opacity: 0;
   transition: 0.3s ease-in-out;
   max-height: 0px;
+  transform: scale(0);
 }
 .buttons > button {
   margin: 0 5px;

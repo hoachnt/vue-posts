@@ -21,9 +21,6 @@ export default {
     const buttons = document.querySelectorAll(".navbar__btn > button");
     const icon = document.querySelector(".icon");
 
-    function reloadPage() {
-      icon.addEventListener("click", () => document.location.reload(true));
-    }
     function btnActive() {
       buttons.forEach((button) => {
         button.addEventListener("click", () => {
@@ -39,7 +36,6 @@ export default {
       });
     }
     btnActive();
-    reloadPage();
   },
 };
 </script>
