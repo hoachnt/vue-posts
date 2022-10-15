@@ -32,5 +32,6 @@ export default {
 }
 option {
   text-align: left;
+  background: #fff;
 }
 </style>

@@ -8,7 +8,7 @@
           >Create Post</my-button
         >
         <my-select
-          v-model="selectedSort"
+          v-model:modelValue="selectedSort"
           class="select"
           :options="sortOptions"
         />

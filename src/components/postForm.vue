@@ -7,7 +7,7 @@
       type="text"
       placeholder="Title"
       required
-      minlength="10"
+      minlength="1"
       class="input-modal"
     />
     <my-input
@@ -16,7 +16,7 @@
       type="text"
       placeholder="Description"
       required
-      minlength="10"
+      minlength="1"
       class="input-modal"
     />
     <my-button class="btn" @click="canClickBtn" type="submit">Create</my-button>
@@ -30,9 +30,7 @@ export default {
       post: {
         title: "",
         body: "",
-        id: 0,
       },
-      isDisabled: true,
     };
   },
   methods: {
@@ -47,11 +45,7 @@ export default {
     canClickBtn() {
       let myInput = document.querySelector(".input-modal");
 
-      if (myInput.value.length < 10) {
-        this.isDisabled = true;
-      } else {
-        this.createPost();
-      }
+      if(myInput.value.length > 10) return this.createPost()
     },
   },
   mounted() {},
