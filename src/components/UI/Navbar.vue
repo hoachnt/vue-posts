@@ -6,13 +6,18 @@
       @click="$router.push('/')"
       class="icon"
     >
-      VP.GITHUB
+    <img src="./logo.png" alt="" class="logo">
     </div>
     <div class="navbar__btn">
       <my-button @click="$router.push('/posts')">Posts</my-button>
       <my-button @click="$router.push('/about')">About</my-button>
       <div class="activeBtn"></div>
     </div>
+  </div>
+  <div class="navbar__btn bottombar__btn">
+    <my-button @click="$router.push('/posts')">Posts</my-button>
+    <my-button @click="$router.push('/about')">About</my-button>
+    <div class="activeBtn"></div>
   </div>
 </template>
 <script>
@@ -66,7 +71,7 @@ export default {
   background: none;
   position: relative;
   z-index: 1;
-  color: #2ee59d;
+  color: rgb(41, 151, 255);
 }
 .navbar__btn > button:hover {
   box-shadow: none;
@@ -79,13 +84,13 @@ export default {
   left: 0;
   min-height: 100%;
   min-width: 50%;
-  background: #2ee59d;
+  background: rgb(26,92,255);
   border-radius: 10px;
   transition: 0.3s ease-in-out;
   opacity: 0;
 }
 .navbar__btn > button.active {
-  color: #000;
+  color: #fff;
 }
 .navbar__btn > button:nth-child(1).active ~ .activeBtn {
   transform: translateX(calc(100% * 0));
@@ -95,17 +100,43 @@ export default {
   transform: translateX(calc(100% * 1));
   opacity: 1;
 }
+.bottombar__btn {
+  display: none !important;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 99;
+  min-width: 100%;
+  display: flex;
+  justify-content: space-between;
+  min-height: 60px;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(4px);
+}
+.bottombar__btn > button {
+  min-width: 50%;
+  min-height: 60px;
+}
+.bottombar__btn > button:hover {
+  min-width: 50% !important;
+}
+.bottombar__btn > .activeBtn {
+  border-radius: 0 !important;
+}
 
 .icon {
   min-height: 60px;
   display: flex;
   align-items: center;
-  background: #2ee59d;
-  padding: 10px;
   position: absolute;
   left: 0;
   top: 0;
   z-index: 0;
+  background: #fff;
+}
+.logo {
+  max-width: 50px;
+  max-height: 50px;
 }
 
 @keyframes stretching {
@@ -120,6 +151,14 @@ export default {
   }
   100% {
     min-width: 100%;
+  }
+}
+@media screen and (max-width: 785px) {
+  .navbar__btn {
+    display: none;
+  }
+  .bottombar__btn {
+    display: flex !important;
   }
 }
 </style>

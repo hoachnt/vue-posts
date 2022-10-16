@@ -183,11 +183,11 @@ export default {
 
 <style>
 :root {
-  --main-button-color: #42b883;
+  --main-button-color: #06c;
   --delete-color: #c21e56;
   --main-text-color: #000;
   --main-background-color: #f2f2f2;
-  --dark-background-color: #000;
+  --dark-background-color: #18191c;
   --white-text-color: #fff;
   --white-color: #fff;
   --page-wrapper-bg: rgba(32, 32, 32, 0.1);

@@ -13,11 +13,11 @@ export default {
 .btn {
   min-width: 130px;
   padding: 15px;
-  background: linear-gradient(90deg, #2EE59D, #00A86B);
+  background: rgb(26,92,255);
   border: none;
   transition: 0.3s;
   cursor: pointer;
-  color: rgb(0, 0, 0);
+  color: #fff;
   font-size: 15px;
   font-weight: 600;
   border-radius: 10px;
@@ -25,8 +25,7 @@ export default {
   min-height: 54px;
 }
 .btn:hover {
-  background: linear-gradient(90deg, #2EE59D, #2EE59D);
-  box-shadow: 0 15px 20px rgba(46, 229, 157, .4);
+  box-shadow: rgba(26, 92, 255, 0.5) 0px 20px 20px -10px;
   color: white;
   min-width: 180px;
 }

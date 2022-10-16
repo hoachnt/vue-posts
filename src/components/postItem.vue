@@ -84,7 +84,7 @@ export default {
   margin: 0 5px;
   flex: 1;
   display: none;
-  transition: .3 ease-in-out;
+  transition: 0.3 ease-in-out;
 }
 .buttons > button:hover {
   flex: 2;

@@ -31,7 +31,7 @@ export default {
   color: #fff;
   padding: 15px;
   min-width: 20%;
-  border: 2px solid var(--main-button-color);
+  border: 2px solid rgb(41, 151, 255);
   border-radius: 10px;
   font-size: 16px;
   text-align: center;

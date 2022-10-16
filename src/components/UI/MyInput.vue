@@ -27,7 +27,7 @@ export default {
   padding: 10px;
   min-width: 100%;
   min-height: 54px;
-  border: 2px solid #42b883;
+  border: 2px solid rgb(41, 151, 255);
   margin: 5px 0;
   transition: 0.3s ease-in-out;
   border-radius: 10px;
