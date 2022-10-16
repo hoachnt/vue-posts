@@ -3,6 +3,7 @@
     :value="value"
     @input="updateInput"
     type="text"
+    name="text" 
     class="input"
   />
 </template>

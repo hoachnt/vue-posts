@@ -14,7 +14,6 @@ export default {
 .app {
   margin: 20px 10px;
   position: relative;
-  /* margin-bottom: 255px; */
   min-height: 100%;
 }
 

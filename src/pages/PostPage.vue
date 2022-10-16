@@ -243,19 +243,6 @@ h1 {
   margin-bottom: 40px;
   margin-top: 10px;
 }
-
-.select {
-  padding: 15px;
-  min-width: 20%;
-  background: #fff;
-  border: 2px solid var(--main-button-color);
-  border-radius: 10px;
-  font-size: 16px;
-  text-align: center;
-  color: var(--main-color);
-  font-weight: 500;
-}
-
 .page__wrapper {
   display: flex;
   flex-wrap: wrap;

@@ -29,9 +29,17 @@ export default {
 .select {
   background: #000;
   color: #fff;
+  padding: 15px;
+  min-width: 20%;
+  border: 2px solid var(--main-button-color);
+  border-radius: 10px;
+  font-size: 16px;
+  text-align: center;
+  font-weight: 500;
 }
-option {
+select > option {
   text-align: left;
-  background: #fff;
+  background: #000;
+  border-radius: 20px;
 }
 </style>
