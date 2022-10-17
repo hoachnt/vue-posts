@@ -15,8 +15,14 @@
     </div>
   </div>
   <div class="navbar__btn bottombar__btn">
-    <my-button @click="$router.push('/posts')">Posts</my-button>
-    <my-button @click="$router.push('/about')">About</my-button>
+    <my-button @click="$router.push('/posts')">
+      <font-awesome-icon icon="fa-solid fa-blog" />
+      <p>Posts</p>
+    </my-button>
+    <my-button @click="$router.push('/about')">
+      <font-awesome-icon icon="fa-solid fa-circle-info" />
+      <p>About</p>
+    </my-button>
     <div class="activeBtn"></div>
   </div>
 </template>
@@ -130,6 +136,9 @@ export default {
   top: 0;
   z-index: 0;
   background: #fff;
+  min-width: 60px;
+  align-items: center;
+  justify-content: center;
 }
 .logo {
   max-width: 50px;
