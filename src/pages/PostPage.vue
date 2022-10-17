@@ -18,7 +18,7 @@
           <post-form @create="createPost" />
         </my-dialog>
       </transition>
-      <transition>
+      <transition mode="out-in">
         <post-list
           :posts="searchedPosts"
           @remove="removePost"

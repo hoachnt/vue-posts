@@ -1,6 +1,6 @@
 <template>
   <div v-if="this.posts.length > 0">
-    <transition-group name="post-list">
+    <transition-group name="post-list" mode="out-in">
       <post-item
         v-for="post in posts"
         :post="post"
