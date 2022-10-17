@@ -1,5 +1,5 @@
 <template>
-  <div v-if="this.posts.length > 0">
+  <div v-if="this.posts.length > 0" class="posts">
     <transition-group name="post-list" mode="out-in">
       <post-item
         v-for="post in posts"
@@ -42,5 +42,8 @@ export default {
 }
 .post-list-move {
   transition: transform 0.4s ease-in-out;
+}
+.posts {
+  margin-bottom: 30px;
 }
 </style>

@@ -79,5 +79,6 @@ export default {
 .return:hover {
   color: rgb(26, 92, 255);
   box-shadow: rgba(26, 92, 255, 0.5) 0px 20px 20px -10px;
+  transform: rotate(360deg)
 }
 </style>

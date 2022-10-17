@@ -1,13 +1,60 @@
 <template lang="">
   <navbar></navbar>
   <div class="app">
-    <router-view></router-view>
+    <router-view v-slot="{ Component }">
+      <transition name="fade" mode="out-in">
+        <component :is="Component" />
+      </transition>
+    </router-view>
   </div>
 </template>
 <script>
 import Navbar from "@/components/UI/Navbar";
 export default {
   components: { Navbar },
+  data() {
+    return { dark: false, root: null };
+  },
+  mounted() {
+    this.root = document.documentElement;
+  },
+  watch: {
+    // page() {
+    //   this.fetchPosts();
+    // },
+    dark: {
+      handler: function () {
+        this.$nextTick(() => {
+          if (!this.dark) {
+            this.root.style.setProperty("--main-background-color", "#000");
+            this.root.style.setProperty("--dark-background-color", "#fff");
+            this.root.style.setProperty("--main-text-color", "#fff");
+            this.root.style.setProperty("--white-text-color", "#000");
+            this.root.style.setProperty("--white-color", "#202124");
+            this.root.style.setProperty("--main-button-color", "#2EE59D");
+            this.root.style.setProperty("--delete-color", "#fa0b5b");
+            this.root.style.setProperty(
+              "--page-wrapper-bg",
+              "rgb(31 255 131 / 10%)"
+            );
+          } else {
+            this.root.style.setProperty("--main-background-color", "#f2f2f2");
+            this.root.style.setProperty("--dark-background-color", "#000");
+            this.root.style.setProperty("--main-text-color", "#000");
+            this.root.style.setProperty("--white-text-color", "#fff");
+            this.root.style.setProperty("--white-color", "#fff");
+            this.root.style.setProperty("--main-button-color", "#42b883");
+            this.root.style.setProperty("--delete-color", "#c21e56");
+            this.root.style.setProperty(
+              "--page-wrapper-bg",
+              "rgba(32, 32, 32, 0.1)"
+            );
+          }
+        });
+      },
+      immediate: true,
+    },
+  },
 };
 </script>
 <style>
@@ -26,5 +73,14 @@ export default {
 }
 #app, html, body {
   background: var(--main-background-color);
+}
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity .3s ease-in-out;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
 }
 </style>

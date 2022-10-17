@@ -1,6 +1,6 @@
 <template>
-  <transition>
-    <div class="post-wrapper">
+  <div class="post-wrapper">
+    <transition mode="out-in">
       <div class="post">
         <div>
           <div class="post-main title">{{ post.title }}</div>
@@ -17,8 +17,8 @@
           >
         </div>
       </div>
-    </div>
-  </transition>
+    </transition>
+  </div>
 </template>
 <script>
 export default {

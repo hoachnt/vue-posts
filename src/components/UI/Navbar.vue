@@ -111,7 +111,7 @@ export default {
   position: fixed;
   bottom: 0px;
   left: 0;
-  z-index: 99;
+  z-index: 199;
   min-width: 100%;
   display: flex;
   justify-content: space-around;
