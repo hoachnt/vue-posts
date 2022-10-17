@@ -58,7 +58,7 @@ export default {
     MySelect,
   },
   data() {
-    return { dialogVisible: false,};
+    return { dialogVisible: false };
   },
   setup(props) {
     const {
@@ -99,23 +99,44 @@ export default {
     reversePosts() {
       this.posts.reverse();
     },
-    createPost(post) {
+    createPost(post, file) {
+      console.log(file)
       this.posts.unshift(post);
       this.dialogVisible = false;
+      this.pushPostImage(file)
 
-      return axios
-        .post(this.serverUrl, {
-          title: post.title,
-          body: post.body,
-        })
-        .then(() => {
-          setTimeout(() => document.location.reload(true), 1000);
-        });
+      setTimeout(() => {
+        const response = axios
+          .get(`${this.serverUrl}/files?sort=uploaded_on`)
+          .then((response) => {
+            let responseData = response.data.data;
+
+            return axios
+              .post(`${this.serverUrl}/items/posts`, {
+                title: post.title,
+                image: responseData[responseData.length - 1].id,
+                body: post.body,
+              })
+              .then(() => {
+                document.location.reload(true);
+              });
+          });
+      }, 1000);
+    },
+    pushPostImage(file) {
+      const formData = new FormData();
+      console.log(file)
+
+
+      formData.append("title", "Image");
+      formData.append("file", file.files[0]);
+
+      return axios.post(`${this.serverUrl}/files`, formData);
     },
     removePost(post) {
       this.posts = this.posts.filter((p) => p.id !== post.id);
 
-      return axios.delete(`${this.serverUrl}/${post.id}`);
+      return axios.delete(`${this.serverUrl}/items/posts/${post.id}`);
     },
     showDialog() {
       this.dialogVisible = true;

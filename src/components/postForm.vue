@@ -19,6 +19,7 @@
       minlength="1"
       class="input-modal"
     />
+    <input type="file" id="file" class="file">
     <my-button class="btn" @click="canClickBtn" type="submit">Create</my-button>
   </form>
 </template>
@@ -29,23 +30,28 @@ export default {
     return {
       post: {
         title: "",
+        image: "",
         body: "",
       },
     };
   },
   methods: {
     createPost() {
-      this.$emit("create", this.post);
+      this.file = document.getElementById("file");
+
+      this.$emit("create", this.post, this.file);
+      console.log(this.file)
 
       this.post = {
         title: "",
+        image: "",
         body: "",
       };
     },
     canClickBtn() {
       let myInput = document.querySelector(".input-modal");
 
-      if(myInput.value.length > 10) return this.createPost()
+      if(myInput.value.length >= 1) return this.createPost()
     },
   },
   mounted() {},
@@ -66,5 +72,8 @@ h2 {
 }
 .input-modal {
   min-width: auto;
+}
+.file {
+  color: #fff;
 }
 </style>

@@ -4,6 +4,9 @@
       <div class="post">
         <div>
           <div class="post-main title">{{ post.title }}</div>
+          <div class="img-wrapper">
+            <img :src="`http://91.105.198.56/assets/${post.image}`" alt="" class="img"/>
+          </div>
           <div class="post-main">{{ post.body }}</div>
         </div>
         <div class="buttons">
@@ -37,6 +40,17 @@ export default {
 </script>
 
 <style scoped>
+.img-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+.img {
+  width: 100%;
+  border-radius: 10px;
+  max-height: 350px;
+}
 .post-wrapper {
   display: flex;
   justify-content: center;
