@@ -84,7 +84,7 @@ export default {
   left: 0;
   min-height: 100%;
   min-width: 50%;
-  background: rgb(26,92,255);
+  background: rgb(26, 92, 255);
   border-radius: 10px;
   transition: 0.3s ease-in-out;
   opacity: 0;
@@ -103,25 +103,22 @@ export default {
 .bottombar__btn {
   display: none !important;
   position: fixed;
-  bottom: 0;
+  bottom: 0px;
   left: 0;
   z-index: 99;
   min-width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   min-height: 60px;
   background: rgba(0, 0, 0, 0.3);
   backdrop-filter: blur(4px);
 }
 .bottombar__btn > button {
-  min-width: 50%;
+  min-width: 45%;
   min-height: 60px;
 }
 .bottombar__btn > button:hover {
-  min-width: 50% !important;
-}
-.bottombar__btn > .activeBtn {
-  border-radius: 0 !important;
+  min-width: 45% !important;
 }
 
 .icon {
