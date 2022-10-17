@@ -9,8 +9,9 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { faCircleInfo } from '@fortawesome/free-solid-svg-icons'
 import { faBlog } from '@fortawesome/free-solid-svg-icons'
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 
-library.add(faBlog, faCircleInfo)
+library.add(faBlog, faCircleInfo, faArrowLeft)
 
 const app = createApp(App);
 

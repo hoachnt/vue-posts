@@ -1,5 +1,10 @@
 <template>
   <div>
+    <font-awesome-icon
+      icon="fa-solid fa-arrow-left"
+      class="return"
+      @click="$router.push('/posts')"
+    />
     <h1>Page with id post: {{ $route.params.id }}</h1>
     <post-item
       v-for="post in posts"
@@ -63,5 +68,16 @@ export default {
   font-size: 25px;
   margin-bottom: 20px;
   font-weight: 600;
+}
+.return {
+  color: #fff;
+  font-size: 20px;
+  margin-bottom: 15px;
+  cursor: pointer;
+  transition: .2s ease-in-out;
+}
+.return:hover {
+  color: rgb(26, 92, 255);
+  box-shadow: rgba(26, 92, 255, 0.5) 0px 20px 20px -10px;
 }
 </style>
