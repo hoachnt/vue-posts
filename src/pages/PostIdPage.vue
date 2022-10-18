@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="post-id-page">
     <font-awesome-icon
       icon="fa-solid fa-arrow-left"
       class="return"
@@ -47,8 +47,8 @@ export default {
 </script>
 
 <style>
-.post {
-  margin: 10px;
+.post-id-page .post {
+  margin-bottom: 80px !important;
   padding: 15px;
   background: var(--white-color);
   border-radius: 10px;
@@ -57,7 +57,6 @@ export default {
   z-index: 1;
   color: var(--main-text-color);
   max-width: 900px;
-  margin: 0 auto;
 }
 
 .post-main {

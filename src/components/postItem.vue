@@ -5,7 +5,7 @@
         <div>
           <div class="post-main title">{{ post.title }}</div>
           <div class="img-wrapper">
-            <img :src="`http://91.105.198.56/assets/${post.image}`" alt="" class="img"/>
+            <img :src="`https://b876ad7f-dd71-4ed3-829a-b2488d40b627.selcdn.net/assets/${post.image}`" alt="" class="img"/>
           </div>
           <div class="post-main">{{ post.body }}</div>
         </div>
@@ -57,9 +57,11 @@ export default {
   flex-direction: column;
   z-index: 1;
   color: var(--main-text-color);
-  margin: 10px;
+  margin: 10px 0;
   border: 1px solid #3e3c3c;
   user-select: none;
+  border-radius: 10px;
+  background: var(--white-color);
 }
 .post:hover .buttons {
   max-height: 53px;

@@ -62,6 +62,9 @@ export default {
   margin: 20px 10px;
   position: relative;
   min-height: 100%;
+  max-width: 910px;
+  margin: 0 auto;
+  padding: 20px;
 }
 
 * {
