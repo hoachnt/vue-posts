@@ -1,7 +1,7 @@
 <template>
   <div class="post-wrapper">
     <transition mode="out-in">
-      <div class="post">
+      <div class="post min-w-full">
         <div>
           <div class="post-main title">{{ post.title }}</div>
           <div class="img-wrapper">
@@ -42,9 +42,8 @@ export default {
   margin-bottom: 20px;
 }
 .img {
-  width: 100%;
+  max-width: 100%;
   border-radius: 10px;
-  max-height: 350px;
 }
 .post-wrapper {
   display: flex;

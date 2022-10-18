@@ -3,12 +3,12 @@
     <div>
       <my-input v-model:value="searchQuery" placeholder="Search..." />
       <div class="app__btns">
-        <my-button @click="showDialog" class="create-post"
+        <my-button @click="showDialog" class="create-post flex-1 md:flex-auto"
           >Create Post</my-button
         >
         <my-select
           v-model:modelValue="selectedSort"
-          class="select"
+          class="select flex-1"
           :options="sortOptions"
         />
       </div>
@@ -205,7 +205,7 @@ h1 {
 
 .modal-show-enter-active,
 .modal-show-leave-active {
-  transition: 0.2s ease-in-out;
+  transition: 0.3s ease-in-out;
 }
 
 .modal-show-enter-from,

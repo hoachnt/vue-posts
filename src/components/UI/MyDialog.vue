@@ -30,7 +30,7 @@ export default {
 .dialog__content {
   position: absolute;
   background: var(--main-background-color);
-  border-radius: 20px 20px;
+  border-radius: 20px;
   min-width: 750px;
   padding: 10px;
 }
