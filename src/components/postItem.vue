@@ -11,11 +11,11 @@
         </div>
         <div class="buttons">
           <my-button
-            class="btn-read_more-post"
+            class="btn-read_more-post post-button"
             @click="$router.push(`/posts/${post.id}`)"
             >Read More</my-button
           >
-          <my-button class="btn-delete-post" @click="$emit('remove', post)"
+          <my-button class="btn-delete-post post-button" @click="$emit('remove', post)"
             >Remove</my-button
           >
         </div>
@@ -29,11 +29,6 @@ export default {
     post: {
       type: Object,
       required: true,
-    },
-  },
-  methods: {
-    copyPost() {
-      return this.post;
     },
   },
 };
@@ -94,13 +89,12 @@ export default {
   max-height: 0px;
   transform: scale(0);
 }
-.buttons > button {
+.buttons > .post-button {
   margin: 0 5px;
   flex: 1;
-  display: none;
   transition: 0.3 ease-in-out;
 }
-.buttons > button:hover {
+.buttons > .post-button:hover {
   flex: 2;
 }
 .btn-delete-post {

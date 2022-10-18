@@ -19,7 +19,25 @@
       minlength="1"
       class="input-modal"
     />
-    <input type="file" id="file" class="file">
+    <input
+      type="file"
+      id="file"
+      class="
+        block
+        w-full
+        text-sm text-slate-500
+        file:mr-4
+        file:py-2
+        file:px-4
+        file:rounded-full
+        file:border-0
+        file:text-sm
+        file:font-semibold
+        file:bg-violet-50
+        file:text-sky-600
+        hover:file:bg-blue-600 hover:file:text-white
+      "
+    />
     <my-button class="btn" @click="canClickBtn" type="submit">Create</my-button>
   </form>
 </template>
@@ -40,7 +58,7 @@ export default {
       this.file = document.getElementById("file");
 
       this.$emit("create", this.post, this.file);
-      console.log(this.file)
+      console.log(this.file);
 
       this.post = {
         title: "",
@@ -51,7 +69,7 @@ export default {
     canClickBtn() {
       let myInput = document.querySelector(".input-modal");
 
-      if(myInput.value.length >= 1) return this.createPost()
+      if (myInput.value.length >= 1) return this.createPost();
     },
   },
   mounted() {},
@@ -73,7 +91,8 @@ h2 {
 .input-modal {
   min-width: auto;
 }
-.file {
-  color: #fff;
+#file {
+  cursor: pointer;
+  margin-top: 5px;
 }
 </style>

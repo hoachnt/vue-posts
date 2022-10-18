@@ -1,7 +1,6 @@
 <template>
   <transition>
     <div>
-      <h1>Posts</h1>
       <my-input v-model:value="searchQuery" placeholder="Search..." />
       <div class="app__btns">
         <my-button @click="showDialog" class="create-post"
