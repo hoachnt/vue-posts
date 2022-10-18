@@ -78,6 +78,7 @@ export default {
   position: relative;
   z-index: 1;
   color: rgb(41, 151, 255);
+  padding: 13px;
 }
 .navbar__btn > button:hover {
   box-shadow: none;
