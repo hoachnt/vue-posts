@@ -3,7 +3,7 @@
     <transition mode="out-in">
       <div class="post min-w-full">
         <div>
-          <div class="post-main title">{{ post.title }}</div>
+          <div class="post-main title mb-8">{{ post.title }}</div>
           <div class="img-wrapper">
             <img :src="`https://b876ad7f-dd71-4ed3-829a-b2488d40b627.selcdn.net/assets/${post.image}`" alt="" class="img"/>
           </div>
@@ -76,7 +76,6 @@ export default {
 
 .title {
   font-size: 25px;
-  margin-bottom: 20px;
   font-weight: 600;
 }
 
