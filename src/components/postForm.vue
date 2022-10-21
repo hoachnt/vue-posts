@@ -10,15 +10,17 @@
       minlength="1"
       class="input-modal"
     />
-    <my-input
+    <textarea
+      name="text"
+      id=""
+      cols="30"
+      rows="10"
       v-bind:value="post.body"
       @input="post.body = $event.target.value"
-      type="text"
       placeholder="Description"
       required
-      minlength="1"
       class="input-modal"
-    />
+    ></textarea>
     <input
       type="file"
       id="file"
@@ -94,5 +96,16 @@ h2 {
 #file {
   cursor: pointer;
   margin-top: 5px;
+}
+textarea {
+  background: #000;
+  color: #fff;
+  padding: 10px;
+  min-width: 100%;
+  min-height: 54px;
+  border: 2px solid rgb(41, 151, 255);
+  margin: 5px 0;
+  transition: 0.3s ease-in-out;
+  border-radius: 10px;
 }
 </style>
