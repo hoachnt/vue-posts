@@ -21,9 +21,7 @@ export default {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
         });
-        console.log(response.data.data);
       } catch (error) {
-
         router.push("/register")
       }
     });
