@@ -99,7 +99,6 @@ export default {
       this.posts.reverse();
     },
     createPost(post, file) {
-      console.log(file)
       this.posts.unshift(post);
       this.dialogVisible = false;
       this.pushPostImage(file)

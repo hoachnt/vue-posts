@@ -5,7 +5,17 @@
   </div>
 </template>
 <script>
-export default {};
+import { onMounted } from '@vue/runtime-core';
+export default {
+  setup() {
+    onMounted(async () => {
+      await fetch("http://91.105.198.56/users", {
+        headers: {'Content-Type': 'application/json'},
+        credentials: 'include',
+      })
+    })
+  }
+};
 </script>
 <style>
 </style>
