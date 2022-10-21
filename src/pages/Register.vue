@@ -7,6 +7,7 @@
       <my-input v-model:value="data.email" type="email" placeholder="Email" required />
       <my-input v-model:value="data.password" type="password" placeholder="Password" required />
       <my-button type="submit" class="btn-register border-solid border-blue-700 border-2 text-white mt-1">Continue</my-button>
+      <p @click="$router.push('/login')" class="text-right cursor-pointer mt-2 underline underline-offset-8 hover:underline-offset-4 hover:text-blue-400 ease-out duration-300">I have account</p>
     </form>
   </div>
 </template>
@@ -28,7 +29,7 @@ export default {
     const router = useRouter();
 
     const submit = async () => {
-      await axios.post("http://91.105.198.56/users", {
+      await axios.post("https://b876ad7f-dd71-4ed3-829a-b2488d40b627.selcdn.net/users", {
         first_name: data.firstName,
         last_name: data.lastName,
         email: data.email,

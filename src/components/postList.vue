@@ -32,7 +32,7 @@ export default {
 <style scoped>
 .post-list-enter-active,
 .post-list-leave-active {
-  transition: 0.4s ease-in-out;
+  transition: .8s ease-in-out;
 }
 
 .post-list-enter-from,
@@ -41,7 +41,7 @@ export default {
   transform: translateY(-100%);
 }
 .post-list-move {
-  transition: transform 0.4s ease-in-out;
+  transition: transform .8s ease;
 }
 .posts {
   margin-bottom: 30px;

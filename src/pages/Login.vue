@@ -45,12 +45,18 @@ export default {
     const router = useRouter();
 
     const submit = async () => {
-      let response = await axios.post("http://91.105.198.56/users", {
-        email: data.email,
-        password: data.password,
-      });
+      try {
+        let response = await axios.post("https://b876ad7f-dd71-4ed3-829a-b2488d40b627.selcdn.net/auth/login", {
+          email: data.email,
+          password: data.password,
+        });
 
-      // await router.push("/");
+        await localStorage.setItem("token", response.data.data.access_token);
+        await router.push("/");
+
+      } catch (error) {
+        alert("Wrong email or password")
+      }
     };
 
     return {
