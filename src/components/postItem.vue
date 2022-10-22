@@ -7,7 +7,7 @@
           <div class="img-wrapper">
             <img :src="`https://b876ad7f-dd71-4ed3-829a-b2488d40b627.selcdn.net/assets/${post.image}`" alt="" class="img"/>
           </div>
-          <div class="post-main">{{ post.body }}</div>
+          <span class="post-main">{{ post.body }}</span>
         </div>
         <div class="buttons">
           <my-button

@@ -19,6 +19,7 @@
       @input="post.body = $event.target.value"
       placeholder="Description"
       required
+      minlength="10"
       class="input-modal"
     ></textarea>
     <input

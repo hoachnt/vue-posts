@@ -2,6 +2,7 @@ import axios from "axios";
 
 export const postModule = {
   state: () => ({
+    authenticated: false,
     posts: [],
     isPostLoading: false,
     dark: false,
@@ -13,7 +14,8 @@ export const postModule = {
     metaAll: 0,
     meta: "total_count",
     totalPages: 0,
-    serverUrl: "https://b876ad7f-dd71-4ed3-829a-b2488d40b627.selcdn.net/items/posts",
+    serverUrl:
+      "https://b876ad7f-dd71-4ed3-829a-b2488d40b627.selcdn.net/items/posts",
     sortOptions: [
       { value: "title", name: "Title" },
       { value: "body", name: "Description" },
@@ -50,6 +52,9 @@ export const postModule = {
     setSearchQuery(state, searchQuery) {
       state.searchQuery = searchQuery;
     },
+    setAuth(state, authenticated) {
+      state.authenticated = authenticated;
+    },
   },
   actions: {
     // async loadMorePosts({ state, commit }) {
@@ -68,6 +73,12 @@ export const postModule = {
     //     document.location.reload(true);
     //   }
     // },
+    authTrue({ state, commit }) {
+      commit("setAuth", (state.authenticated = true));
+    },
+    authFalse({ state, commit }) {
+      commit("setAuth", (state.authenticated = false));
+    },
   },
   namespaced: true,
 };

@@ -13,6 +13,7 @@
       <my-button @click="$router.push('/about')">About</my-button>
       <div class="activeBtn"></div>
     </div>
+    <my-button @click="logOut" class="log-out" v-if="auth">Log out</my-button>
   </div>
   <div class="navbar__btn bottombar__btn">
     <my-button @click="$router.push('/posts')">
@@ -27,7 +28,29 @@
   </div>
 </template>
 <script>
+import { useRouter } from 'vue-router';
+import { useStore } from 'vuex';
+import { computed } from '@vue/runtime-core';
 export default {
+  setup() {
+    const router = useRouter()
+    const store = useStore()
+    const auth = computed(() => store.state.post.authenticated)
+    console.log(auth)
+
+    const logOut = () => {
+      localStorage.clear()
+
+      store.dispatch("post/authFalse");
+
+      router.push("/register")
+    }
+
+    return {
+      auth,
+      logOut
+    }
+  },
   mounted() {
     const buttons = document.querySelectorAll(".navbar__btn > button");
     const icon = document.querySelector(".icon");
@@ -107,6 +130,7 @@ export default {
   transform: translateX(calc(100% * 1));
   opacity: 1;
 }
+
 .bottombar__btn {
   display: none !important;
   position: fixed;
@@ -127,7 +151,18 @@ export default {
 .bottombar__btn > button:hover {
   min-width: 45% !important;
 }
+.log-out {
+  background: none !important;
+  border: 2px solid rgb(26,92,255) !important;
+  margin: 0 15px;
+  min-height: 48.5px !important;
+  max-height: 48.5px;
+  padding: 8px !important;
+}
+.log-out:hover {
+  box-shadow: rgba(26, 92, 255, 0.5) 0px 0px 10px 10px !important;
 
+}
 .icon {
   min-height: 60px;
   display: flex;
