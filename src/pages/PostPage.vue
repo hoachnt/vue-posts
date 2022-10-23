@@ -89,6 +89,7 @@ export default {
   methods: {
     ...mapActions({
       // loadMorePosts: "post/loadMorePosts",
+      authTrue: "post/authTrue",
     }),
     ...mapMutations({
       setPage: "post/setPage",
@@ -153,6 +154,9 @@ export default {
       // searchedPosts: "post/searchedPosts",
     }),
   },
+  mounted() {
+    this.authTrue()
+  }
 };
 </script>
 

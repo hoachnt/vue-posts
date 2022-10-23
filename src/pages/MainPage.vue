@@ -27,7 +27,7 @@ export default {
           }
         );
         await store.dispatch("post/authTrue");
-      } catch (error) {        
+      } catch (error) {
         router.push("/register");
       }
     });

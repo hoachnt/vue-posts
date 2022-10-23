@@ -8,7 +8,7 @@
     >
     <img src="./logo.png" alt="" class="logo">
     </div>
-    <div class="navbar__btn">
+    <div class="navbar__btn" v-show="auth">
       <my-button @click="$router.push('/posts')">Posts</my-button>
       <my-button @click="$router.push('/about')">About</my-button>
       <div class="activeBtn"></div>

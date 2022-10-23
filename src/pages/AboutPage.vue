@@ -7,7 +7,18 @@
   </div>
 </template>
 <script>
-export default {};
+import { mapState, mapGetters, mapActions, mapMutations } from "vuex";
+
+export default {
+  methods: {
+    ...mapActions({
+      authTrue: "post/authTrue",
+    }),
+  },
+  mounted() {
+    this.authTrue();
+  },
+};
 </script>
 <style>
 p {

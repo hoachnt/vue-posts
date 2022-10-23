@@ -3,6 +3,7 @@ import axios from "axios";
 export const postModule = {
   state: () => ({
     authenticated: false,
+    auth: null,
     posts: [],
     isPostLoading: false,
     dark: false,
@@ -74,10 +75,10 @@ export const postModule = {
     //   }
     // },
     authTrue({ state, commit }) {
-      commit("setAuth", (state.authenticated = true));
+      commit("setAuth", (state.auth = true));
     },
     authFalse({ state, commit }) {
-      commit("setAuth", (state.authenticated = false));
+      commit("setAuth", (state.auth = false));
     },
   },
   namespaced: true,
