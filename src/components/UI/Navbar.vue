@@ -13,7 +13,7 @@
       <my-button @click="$router.push('/about')">About</my-button>
       <div class="activeBtn"></div>
     </div>
-    <my-button @click="logOut" class="log-out" v-if="auth">Log out</my-button>
+    <button @click="logOut" v-if="auth" class="log-out text-white border-2 border-rose-700 w-40 h-12 ml-2 mr-4 rounded-md font-semibold transition ease-in duration-150 hover:w-60">Log out</button>
   </div>
   <div class="navbar__btn bottombar__btn">
     <my-button @click="$router.push('/posts')">
@@ -152,14 +152,14 @@ export default {
 }
 .log-out {
   background: none !important;
-  border: 2px solid rgb(26,92,255) !important;
   margin: 0 15px;
   min-height: 48.5px !important;
   max-height: 48.5px;
   padding: 8px !important;
+  transition: .3s ease-in;
 }
 .log-out:hover {
-  box-shadow: rgba(26, 92, 255, 0.5) 0px 0px 10px 10px !important;
+  box-shadow: #920635 0px 0px 5px 5px !important;
 }
 .icon {
   min-height: 60px;
@@ -201,7 +201,7 @@ export default {
     display: flex !important;
   }
   .log-out {
-    box-shadow: rgba(26, 92, 255, 0.5) 0px 0px 10px 10px !important;
+    box-shadow: #920635 0px 0px 5px 5px !important;
   }
 }
 </style>

@@ -11,6 +11,8 @@ import { faCircleInfo } from "@fortawesome/free-solid-svg-icons";
 import { faBlog } from "@fortawesome/free-solid-svg-icons";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import "./style.css";
+import ElementPlus from 'element-plus'
+import 'element-plus/dist/index.css'
 
 library.add(faBlog, faCircleInfo, faArrowLeft);
 
@@ -25,6 +27,7 @@ directives.forEach((directive) => {
 });
 
 document.addEventListener("DOMContentLoaded", () => {
+  app.use(ElementPlus)
   app
     .use(store)
     .use(router)
