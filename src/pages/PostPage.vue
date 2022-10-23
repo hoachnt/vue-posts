@@ -99,9 +99,8 @@ export default {
       this.posts.reverse();
     },
     createPost(post, file) {
-      this.posts.unshift(post);
       this.dialogVisible = false;
-      this.pushPostImage(file)
+      this.pushPostImage(file);
 
       setTimeout(() => {
         const response = axios
@@ -115,6 +114,7 @@ export default {
                 image: responseData[responseData.length - 1].id,
                 body: post.body,
               })
+              .then(() => this.posts.unshift(post))
               .then(() => {
                 document.location.reload(true);
               });
@@ -123,8 +123,7 @@ export default {
     },
     pushPostImage(file) {
       const formData = new FormData();
-      console.log(file)
-
+      console.log(file);
 
       formData.append("title", "Image");
       formData.append("file", file.files[0]);

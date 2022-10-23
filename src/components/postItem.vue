@@ -5,7 +5,11 @@
         <div>
           <div class="post-main title mb-8">{{ post.title }}</div>
           <div class="img-wrapper">
-            <img :src="`https://b876ad7f-dd71-4ed3-829a-b2488d40b627.selcdn.net/assets/${post.image}`" alt="" class="img"/>
+            <img
+              :src="`https://b876ad7f-dd71-4ed3-829a-b2488d40b627.selcdn.net/assets/${post.image}`"
+              alt=""
+              class="img"
+            />
           </div>
           <span class="post-main">{{ post.body }}</span>
         </div>
@@ -15,7 +19,9 @@
             @click="$router.push(`/posts/${post.id}`)"
             >Read More</my-button
           >
-          <my-button class="btn-delete-post post-button" @click="$emit('remove', post)"
+          <my-button
+            class="btn-delete-post post-button"
+            @click="$emit('remove', post)"
             >Remove</my-button
           >
         </div>
@@ -25,11 +31,26 @@
 </template>
 <script>
 export default {
+  data() {
+    return {
+      maxSymbol: 300,
+    }
+  },
   props: {
     post: {
       type: Object,
       required: true,
     },
+  },
+  methods: {
+    truncate(post) {
+      if(post.body != null) {
+        post.body = (post.body.length > this.maxSymbol) ? `${post.body.slice(0, this.maxSymbol - 1)}...` : post.body 
+      }
+    }
+  },
+  mounted() {
+    this.truncate(this.post)
   },
 };
 </script>

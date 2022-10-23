@@ -36,7 +36,6 @@ export default {
     const router = useRouter()
     const store = useStore()
     const auth = computed(() => store.state.post.authenticated)
-    console.log(auth)
 
     const logOut = () => {
       localStorage.clear()

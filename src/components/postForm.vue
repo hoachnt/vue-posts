@@ -61,7 +61,6 @@ export default {
       this.file = document.getElementById("file");
 
       this.$emit("create", this.post, this.file);
-      console.log(this.file);
 
       this.post = {
         title: "",
