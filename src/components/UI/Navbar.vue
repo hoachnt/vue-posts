@@ -13,7 +13,10 @@
       <my-button @click="$router.push('/about')">About</my-button>
       <div class="activeBtn"></div>
     </div>
-    <button @click="logOut" v-if="auth" class="log-out text-white border-2 border-rose-700 w-40 h-12 ml-2 mr-4 rounded-md font-semibold transition ease-in duration-150 hover:w-60">Log out</button>
+    <button @click="logOut" v-if="auth" class="log-out text-white border-2 border-rose-700 w-40 h-12 ml-2 mr-4 rounded-md font-semibold transition ease-in-out duration-150 hover:w-60">
+      Log out
+      <font-awesome-icon icon="fa-solid fa-right-from-bracket" class="ml-2"/>
+    </button>
   </div>
   <div class="navbar__btn bottombar__btn">
     <my-button @click="$router.push('/posts')">

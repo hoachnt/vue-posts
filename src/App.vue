@@ -74,12 +74,14 @@ export default {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
-#app, html, body {
+#app,
+html,
+body {
   background: var(--main-background-color);
 }
 .fade-enter-active,
 .fade-leave-active {
-  transition: opacity .3s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
 }
 
 .fade-enter-from,

@@ -12,6 +12,7 @@
     "@fortawesome/free-regular-svg-icons": "^6.2.0",
     "@fortawesome/free-solid-svg-icons": "^6.2.0",
     "@fortawesome/vue-fontawesome": "^3.0.1",
+    "@mdi/font": "5.9.55",
     "axios": "^0.27.2",
     "console-browserify": "^1.2.0",
     "core-js": "^3.8.3",
@@ -19,9 +20,12 @@
     "jsonwebtoken": "^8.5.1",
     "node-fetch": "^3.2.4",
     "register-service-worker": "^1.7.2",
+    "roboto-fontface": "*",
     "vue": "^3.2.37",
     "vue-router": "^4.0.3",
-    "vuex": "^4.0.0"
+    "vuetify": "^3.0.0-beta.0",
+    "vuex": "^4.0.0",
+    "webfontloader": "^1.0.0"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~5.0.0",
@@ -31,7 +35,9 @@
     "@vue/cli-service": "~5.0.0",
     "autoprefixer": "^10.4.12",
     "postcss": "^8.4.18",
-    "tailwindcss": "^3.1.8"
+    "tailwindcss": "^3.1.8",
+    "vue-cli-plugin-vuetify": "~2.5.8",
+    "webpack-plugin-vuetify": "^2.0.0-alpha.0"
   },
   "browserslist": [
     "> 1%",

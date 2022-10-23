@@ -29,7 +29,7 @@ export default {
 .select {
   background: #000;
   color: #fff;
-  padding: 15px;
+  padding: 13px;
   min-width: 20%;
   border: 2px solid rgb(41, 151, 255);
   border-radius: 10px;

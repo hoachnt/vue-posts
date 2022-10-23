@@ -10,11 +10,16 @@ import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import { faCircleInfo } from "@fortawesome/free-solid-svg-icons";
 import { faBlog } from "@fortawesome/free-solid-svg-icons";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+import { faRightFromBracket } from "@fortawesome/free-solid-svg-icons";
 import "./style.css";
-import ElementPlus from 'element-plus'
-import 'element-plus/dist/index.css'
+import ElementPlus from "element-plus";
+import "element-plus/dist/index.css";
+import vuetify from "./plugins/vuetify";
+import { loadFonts } from "./plugins/webfontloader";
 
-library.add(faBlog, faCircleInfo, faArrowLeft);
+loadFonts();
+
+library.add(faBlog, faCircleInfo, faArrowLeft, faRightFromBracket);
 
 const app = createApp(App);
 
@@ -27,8 +32,9 @@ directives.forEach((directive) => {
 });
 
 document.addEventListener("DOMContentLoaded", () => {
-  app.use(ElementPlus)
+  app.use(ElementPlus);
   app
+    .use(vuetify)
     .use(store)
     .use(router)
     .component("font-awesome-icon", FontAwesomeIcon)
