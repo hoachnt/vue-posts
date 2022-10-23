@@ -11,7 +11,20 @@
               class="img"
             />
           </div>
-          <span class="post-main">{{ post.body }}</span>
+          <p
+            class="
+              post-main
+              first-line:uppercase first-line:tracking-widest
+              first-letter:text-7xl
+              first-letter:font-bold
+              first-letter:text-white
+              first-letter:mr-3
+              first-letter:float-left
+              selection:bg-sky-300 selection:text-sky-900
+            "
+          >
+            {{ post.body }}
+          </p>
         </div>
         <div class="buttons">
           <my-button
@@ -34,7 +47,7 @@ export default {
   data() {
     return {
       maxSymbol: 300,
-    }
+    };
   },
   props: {
     post: {
@@ -44,13 +57,16 @@ export default {
   },
   methods: {
     truncate(post) {
-      if(post.body != null) {
-        post.body = (post.body.length > this.maxSymbol) ? `${post.body.slice(0, this.maxSymbol - 1)}...` : post.body 
+      if (post.body != null) {
+        post.body =
+          post.body.length > this.maxSymbol
+            ? `${post.body.slice(0, this.maxSymbol - 1)}...`
+            : post.body;
       }
-    }
+    },
   },
   mounted() {
-    this.truncate(this.post)
+    this.truncate(this.post);
   },
 };
 </script>

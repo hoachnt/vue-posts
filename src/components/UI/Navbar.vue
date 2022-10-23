@@ -160,7 +160,6 @@ export default {
 }
 .log-out:hover {
   box-shadow: rgba(26, 92, 255, 0.5) 0px 0px 10px 10px !important;
-
 }
 .icon {
   min-height: 60px;
@@ -200,6 +199,9 @@ export default {
   }
   .bottombar__btn {
     display: flex !important;
+  }
+  .log-out {
+    box-shadow: rgba(26, 92, 255, 0.5) 0px 0px 10px 10px !important;
   }
 }
 </style>

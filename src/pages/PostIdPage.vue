@@ -21,7 +21,20 @@
               class="img"
             />
           </div>
-          <span class="post-main">{{ post.body }}</span>
+          <p
+            class="
+              post-main
+              first-line:uppercase first-line:tracking-widest
+              first-letter:text-7xl
+              first-letter:font-bold
+              first-letter:text-white
+              first-letter:mr-3
+              first-letter:float-left
+              selection:bg-sky-300 selection:text-sky-900
+            "
+          >
+            {{ post.body }}
+          </p>
         </div>
       </div>
     </div>
@@ -111,5 +124,4 @@ export default {
   font-size: 25px;
   font-weight: 600;
 }
-
 </style>
