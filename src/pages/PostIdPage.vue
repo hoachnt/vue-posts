@@ -84,6 +84,7 @@ export default {
   z-index: 1;
   color: var(--main-text-color);
   max-width: 900px;
+  background: var(--white-color);
 }
 
 .post-main {
