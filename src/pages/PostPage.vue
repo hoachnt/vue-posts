@@ -17,6 +17,30 @@
           <post-form @create="createPost" />
         </my-dialog>
       </transition>
+      <blockquote
+        class="
+          text-4xl
+          font-semibold
+          italic
+          text-left text-slate-900
+          mb-10
+          mt-14
+        "
+      >
+        <span
+          class="
+            before:block
+            before:absolute
+            before:-inset-1
+            before:-skew-y-3
+            before:bg-blue-500
+            relative
+            inline-block
+          "
+        >
+          <h1 class="relative text-white">Posts from users</h1>
+        </span>
+      </blockquote>
       <transition mode="out-in">
         <post-list
           :posts="searchedPosts"
@@ -29,6 +53,7 @@
           Posts Loading...
         </div>
       </transition>
+      <post-nasa-earth />
       <div v-intersection="loadMorePosts" class="observer"></div>
       <!-- <div class="page__wrapper">
         <post-pages :pages="totalPages" :page="page" @change="changePage" />
@@ -43,6 +68,7 @@
 <script>
 import postForm from "@/components/postForm.vue";
 import postList from "@/components/postList.vue";
+import postNasaEarth from "@/components/postNasaEarth.vue";
 import MySelect from "@/components/UI/MySelect.vue";
 import axios from "axios";
 import { mapState, mapGetters, mapActions, mapMutations } from "vuex";
@@ -54,6 +80,7 @@ export default {
   components: {
     postList,
     postForm,
+    postNasaEarth,
     MySelect,
   },
   data() {
@@ -155,8 +182,8 @@ export default {
     }),
   },
   mounted() {
-    this.authTrue()
-  }
+    this.authTrue();
+  },
 };
 </script>
 
