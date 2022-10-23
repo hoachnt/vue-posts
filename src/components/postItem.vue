@@ -20,6 +20,7 @@
               first-letter:text-white
               first-letter:mr-3
               first-letter:float-left
+              tracking-widest
               selection:bg-sky-300 selection:text-sky-900
             "
           >
