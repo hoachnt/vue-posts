@@ -1,7 +1,8 @@
 <template lang="">
-  <div>
+  <div class="min-h-screen">
     <h1 class="text-4xl text-center">{{message}}</h1>
     <p class="text-center mt-5">Here you can see posts from other people</p>
+    <footer-vue />
   </div>
 </template>
 <script>
@@ -9,7 +10,11 @@ import { onMounted, ref } from "@vue/runtime-core";
 import axios from "axios";
 import { useRouter } from "vue-router";
 import { useStore } from "vuex";
+import footerVue from "@/components/footer.vue";
 export default {
+  components: {
+    footerVue,
+  },
   name: "MainPage",
   setup() {
     const message = ref("Welcome !");
