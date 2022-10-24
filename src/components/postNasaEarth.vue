@@ -2,7 +2,7 @@
   <div>
     <blockquote class="text-4xl font-semibold italic text-left text-slate-900 mb-10 mt-20">
       <span class="before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-blue-500 relative inline-block">
-        <h1 class="relative text-white">Posts from NASA</h1>
+        <h1 class="relative text-white">News about Earth from NASA</h1>
       </span>
     </blockquote>
     <div class="post min-w-full">

@@ -9,8 +9,8 @@
     <img src="./logo.png" alt="" class="logo">
     </div>
     <div class="navbar__btn" v-show="auth">
-      <my-button @click="$router.push('/posts')">Posts</my-button>
-      <my-button @click="$router.push('/about')">About</my-button>
+      <my-button @click="$router.push('/posts')" class="waves-effect waves-light">Posts</my-button>
+      <my-button @click="$router.push('/about')" class="waves-effect waves-light">About</my-button>
       <div class="activeBtn"></div>
     </div>
     <button @click="logOut" v-if="auth" class="log-out text-white border-2 border-rose-700 w-40 h-12 ml-2 mr-4 rounded-md font-semibold transition ease-in-out duration-150 hover:w-60">
@@ -19,11 +19,11 @@
     </button>
   </div>
   <div class="navbar__btn bottombar__btn">
-    <my-button @click="$router.push('/posts')">
+    <my-button @click="$router.push('/posts')" class="waves-effect waves-light">
       <font-awesome-icon icon="fa-solid fa-blog" />
       <p>Posts</p>
     </my-button>
-    <my-button @click="$router.push('/about')">
+    <my-button @click="$router.push('/about')" class="waves-effect waves-light">
       <font-awesome-icon icon="fa-solid fa-circle-info" />
       <p>About</p>
     </my-button>
@@ -31,27 +31,27 @@
   </div>
 </template>
 <script>
-import { useRouter } from 'vue-router';
-import { useStore } from 'vuex';
-import { computed } from '@vue/runtime-core';
+import { useRouter } from "vue-router";
+import { useStore } from "vuex";
+import { computed } from "@vue/runtime-core";
 export default {
   setup() {
-    const router = useRouter()
-    const store = useStore()
-    const auth = computed(() => store.state.post.authenticated)
+    const router = useRouter();
+    const store = useStore();
+    const auth = computed(() => store.state.post.authenticated);
 
     const logOut = () => {
-      localStorage.clear()
+      localStorage.clear();
 
       store.dispatch("post/authFalse");
 
-      router.push("/register")
-    }
+      router.push("/register");
+    };
 
     return {
       auth,
-      logOut
-    }
+      logOut,
+    };
   },
   mounted() {
     const buttons = document.querySelectorAll(".navbar__btn > button");
@@ -95,15 +95,17 @@ export default {
 }
 .navbar__btn {
   position: relative;
+  display: flex;
+  min-width: 270px;
+  justify-content: space-between;
 }
 .navbar__btn > button {
-  min-height: 100%;
   transition: 0.2s ease-in-out;
   background: none;
   position: relative;
   z-index: 1;
+  min-height: 50px;
   color: rgb(41, 151, 255);
-  padding: 13px;
 }
 .navbar__btn > button:hover {
   box-shadow: none;
@@ -115,7 +117,7 @@ export default {
   top: 0;
   left: 0;
   min-height: 100%;
-  min-width: 50%;
+  min-width: 48%;
   background: rgb(26, 92, 255);
   border-radius: 10px;
   transition: 0.3s ease-in-out;
@@ -129,7 +131,7 @@ export default {
   opacity: 1;
 }
 .navbar__btn > button:nth-child(2).active ~ .activeBtn {
-  transform: translateX(calc(100% * 1));
+  transform: translateX(calc(108% * 1));
   opacity: 1;
 }
 
@@ -142,16 +144,23 @@ export default {
   min-width: 100%;
   display: flex;
   justify-content: space-around;
-  min-height: 60px;
+  min-height: 70px;
   background: rgba(0, 0, 0, 0.3);
   backdrop-filter: blur(4px);
 }
 .bottombar__btn > button {
-  min-width: 45%;
-  min-height: 60px;
+  min-width: 50%;
+  min-height: 70px;
 }
 .bottombar__btn > button:hover {
-  min-width: 45% !important;
+  min-width: 50% !important;
+}
+.bottombar__btn > .activeBtn {
+  min-width: 50%;
+}
+.bottombar__btn > button:nth-child(2).active ~ .activeBtn {
+  transform: translateX(calc(100% * 1));
+  opacity: 1;
 }
 .log-out {
   background: none !important;
@@ -159,7 +168,7 @@ export default {
   min-height: 48.5px !important;
   max-height: 48.5px;
   padding: 8px !important;
-  transition: .3s ease-in;
+  transition: 0.3s ease-in;
 }
 .log-out:hover {
   box-shadow: #920635 0px 0px 5px 5px !important;

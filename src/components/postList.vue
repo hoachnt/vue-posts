@@ -10,7 +10,7 @@
       />
     </transition-group>
   </div>
-  <h2 v-else style="color: #c21e56; text-align: center; display: block">
+  <h2 v-else style="color: #c21e56; text-align: center; display: block" class="text-2xl">
     POST LIST IS EMPTY!
   </h2>
 </template>

@@ -1,5 +1,5 @@
 <template>
-  <button class="btn">
+  <button class="btn waves-effect waves-light">
       <slot></slot>
   </button>
 </template>
@@ -12,7 +12,6 @@ export default {
 <style scoped>
 .btn {
   min-width: 130px;
-  padding: 15px;
   background: rgb(26,92,255);
   border: none;
   transition: 0.3s;

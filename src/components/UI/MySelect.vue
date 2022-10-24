@@ -27,15 +27,16 @@ export default {
 </script>
 <style scoped>
 .select {
+  display: block;
   background: #000;
   color: #fff;
-  padding: 15px;
   min-width: 20%;
   border: 2px solid rgb(41, 151, 255);
   border-radius: 10px;
   font-size: 16px;
   text-align: center;
   font-weight: 500;
+  min-height: 54px;
 }
 select > option {
   text-align: left;

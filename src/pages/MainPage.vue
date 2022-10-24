@@ -18,7 +18,7 @@ export default {
 
     onMounted(async () => {
       try {
-        let response = await axios.get(
+        let user = await axios.get(
           "https://b876ad7f-dd71-4ed3-829a-b2488d40b627.selcdn.net/users",
           {
             headers: {

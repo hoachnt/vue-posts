@@ -102,7 +102,7 @@ textarea {
   color: #fff;
   padding: 10px;
   min-width: 100%;
-  min-height: 54px;
+  min-height: 250px;
   border: 2px solid rgb(41, 151, 255);
   margin: 5px 0;
   transition: 0.3s ease-in-out;

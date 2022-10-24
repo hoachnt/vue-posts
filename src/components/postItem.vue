@@ -136,7 +136,6 @@ export default {
   flex: 2;
 }
 .btn-delete-post {
-  padding: 15px 20px !important;
   color: #fff !important;
   background: #c21e56 !important;
   font-size: 15px !important;
