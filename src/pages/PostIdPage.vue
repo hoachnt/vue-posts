@@ -2,7 +2,7 @@
   <div class="post-id-page">
     <font-awesome-icon
       icon="fa-solid fa-arrow-left"
-      class="return"
+      class="return waves-effect waves-light"
       @click="$router.push('/posts')"
     />
     <div
@@ -107,6 +107,12 @@ export default {
   box-shadow: rgba(26, 92, 255, 0.5) 0px 20px 20px -10px;
   transition: 0.2s ease-in-out;
   transform: rotate(-360deg);
+  background: white;
+  padding: 10px;
+  border-radius: 50%;
+  min-width: 25px;
+  min-height: 25px;
+  animation: return 1s ease-in-out;
 }
 .img-wrapper {
   display: flex;
@@ -120,6 +126,16 @@ export default {
 }
 .post-main {
   min-width: 100%;
+}
+
+@keyframes return {
+  0% {
+  }
+  50% {
+    border-radius: 10px;
+  }
+  100% {
+  }
 }
 
 .title {

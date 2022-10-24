@@ -27,6 +27,7 @@
         "
         >Continue</my-button
       >
+      <p @click="$router.push('/register')" class="text-right cursor-pointer mt-2 underline underline-offset-8 hover:underline-offset-4 duration-300 hover:text-blue-400 ease-out">Register</p>
     </form>
   </div>
 </template>
