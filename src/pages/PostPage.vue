@@ -18,20 +18,7 @@
           <post-form @create="createPost" />
         </my-dialog>
       </transition>
-      <blockquote
-        class="
-          text-4xl
-          font-semibold
-          italic
-          text-left text-slate-900
-          mb-10
-          mt-14
-        "
-      >
-        <span class="header-text">
-          <h1 class="relative text-white">Posts from users</h1>
-        </span>
-      </blockquote>
+      <my-header :header="'Posts from users'"/>
       <transition mode="out-in">
         <post-list
           :posts="searchedPosts"
@@ -195,13 +182,6 @@ body {
 .create-post {
   width: max(70%);
   margin-right: 20px;
-}
-.header-text {
-  background: rgba(255, 255, 255, 0.1);
-  min-width: 100%;
-  display: inline-block;
-  padding: 20px;
-  border-radius: 10px;
 }
 h1 {
   margin-bottom: 20px;

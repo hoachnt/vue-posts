@@ -1,12 +1,6 @@
 <template>
   <div>
-    <blockquote
-      class="text-4xl font-semibold italic text-left text-slate-900 mb-10 mt-20"
-    >
-      <span class="header-text">
-        <h1 class="relative text-white">News about Earth from NASA</h1>
-      </span>
-    </blockquote>
+    <my-header :header="'News about Earth from NASA'"/>
     <div class="post min-w-full">
       <div>
         <div class="creator flex justify-between opacity-50">
