@@ -11,7 +11,7 @@
               class="img"
             />
           </div>
-          <blockquote
+          <p
             class="
               post-main
               first-line:uppercase first-line:tracking-widest
@@ -20,12 +20,11 @@
               first-letter:text-white
               first-letter:mr-3
               first-letter:float-left
-              tracking-widest
               selection:bg-sky-300 selection:text-sky-900
             "
           >
             {{ post.body }}
-          </blockquote>
+          </p>
         </div>
         <div class="buttons">
           <my-button

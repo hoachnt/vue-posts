@@ -31,6 +31,7 @@ export default {
             },
           }
         );
+        console.log(user.data.data)
         await store.dispatch("post/authTrue");
       } catch (error) {
         router.push("/register");

@@ -28,17 +28,7 @@
           mt-14
         "
       >
-        <span
-          class="
-            before:block
-            before:absolute
-            before:-inset-1
-            before:-skew-y-3
-            before:bg-blue-500
-            relative
-            inline-block
-          "
-        >
+        <span class="header-text">
           <h1 class="relative text-white">Posts from users</h1>
         </span>
       </blockquote>
@@ -206,7 +196,13 @@ body {
   width: max(70%);
   margin-right: 20px;
 }
-
+.header-text {
+  background: rgba(255, 255, 255, 0.1);
+  min-width: 100%;
+  display: inline-block;
+  padding: 20px;
+  border-radius: 10px;
+}
 h1 {
   margin-bottom: 20px;
   color: var(--main-text-color);
