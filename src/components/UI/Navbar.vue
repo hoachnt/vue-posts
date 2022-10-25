@@ -1,5 +1,4 @@
 <template lang="">
-  <div class="navbar-head"></div>
   <div class="navbar">
     <div
       style="cursor: pointer; color: #000"
@@ -76,9 +75,6 @@ export default {
 };
 </script>
 <style scoped>
-.navbar-head {
-  min-height: 60px;
-}
 .navbar {
   min-height: 60px;
   background: rgba(0, 0, 0, 0.3);

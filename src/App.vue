@@ -59,9 +59,12 @@ export default {
 </script>
 <style>
 .app {
+  padding-top: 60px;
+}
+.container {
   margin: 20px 10px;
   min-height: 100%;
-  max-width: 910px;
+  max-width: 910px !important;
   margin: 0 auto;
   padding: 20px;
 }

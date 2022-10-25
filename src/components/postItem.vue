@@ -131,6 +131,7 @@ export default {
   margin: 0 5px;
   flex: 1;
   transition: 0.3 ease-in-out;
+  min-width: 0 !important;
 }
 .buttons > .post-button:hover {
   flex: 2;

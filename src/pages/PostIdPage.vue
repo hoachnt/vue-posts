@@ -1,5 +1,5 @@
 <template>
-  <div class="post-id-page">
+  <div class="post-id-page container">
     <font-awesome-icon
       icon="fa-solid fa-arrow-left"
       class="return waves-effect waves-light"

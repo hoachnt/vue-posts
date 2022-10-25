@@ -1,6 +1,6 @@
 <template>
   <transition>
-    <div>
+    <div class="container">
       <my-input v-model:value="searchQuery" placeholder="Search..." />
       <div class="app__btns">
         <my-button @click="showDialog" class="create-post flex-1 md:flex-auto"
@@ -12,6 +12,7 @@
           :options="sortOptions"
         />
       </div>
+      <post-nasa-earth />
       <transition name="modal-show">
         <my-dialog v-model:show="dialogVisible" style="will-change: transform">
           <post-form @create="createPost" />
@@ -53,7 +54,6 @@
           Posts Loading...
         </div>
       </transition>
-      <post-nasa-earth />
       <div v-intersection="loadMorePosts" class="observer"></div>
       <!-- <div class="page__wrapper">
         <post-pages :pages="totalPages" :page="page" @change="changePage" />
@@ -95,7 +95,7 @@ export default {
       meta,
       serverUrl,
       loadMorePosts,
-    } = usePosts(10);
+    } = usePosts(5);
     const { selectedSort, sortedPosts } = useSortedPosts(posts);
     const { searchQuery, searchedPosts } = useSearchedPosts(sortedPosts);
 

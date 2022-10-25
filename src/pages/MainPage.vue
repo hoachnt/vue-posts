@@ -1,5 +1,5 @@
 <template lang="">
-  <div class="min-h-screen">
+  <div class="container">
     <h1 class="text-4xl text-center">{{message}}</h1>
     <p class="text-center mt-5">Here you can see posts from other people</p>
     <footer-vue />
@@ -13,7 +13,7 @@ import { useStore } from "vuex";
 import footerVue from "@/components/footer.vue";
 export default {
   components: {
-    footerVue,
+    footerVue
   },
   name: "MainPage",
   setup() {
