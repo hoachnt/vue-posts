@@ -149,7 +149,7 @@ export default {
   min-height: 70px;
   display: flex;
   justify-content: center;
-  align-content: center;
+  align-items: center;
   flex-direction: column;
 }
 .bottombar__btn > button:hover {
