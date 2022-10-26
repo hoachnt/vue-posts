@@ -39,7 +39,7 @@ export default {
           (user) => userData.email === user.email
         );
 
-        message.value = `Welcome ${getUserData[0].email} !`
+        message.value = `Welcome ${getUserData[0].first_name} ${getUserData[0].last_name} !`
       } catch (error) {
         router.push("/register");
       }
