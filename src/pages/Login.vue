@@ -52,9 +52,10 @@ export default {
           password: data.password,
         });
 
+        await localStorage.setItem("userData", response.config.data);
         await localStorage.setItem("token", response.data.data.access_token);
+        await localStorage.setItem("refresh_token", response.data.data.refresh_token)
         await router.push("/");
-
       } catch (error) {
         alert("Wrong email or password")
       }

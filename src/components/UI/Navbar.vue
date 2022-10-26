@@ -147,12 +147,20 @@ export default {
 .bottombar__btn > button {
   min-width: 50%;
   min-height: 70px;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
 }
 .bottombar__btn > button:hover {
   min-width: 50% !important;
 }
 .bottombar__btn > .activeBtn {
   min-width: 50%;
+}
+p {
+  line-height: 22.5px;
+  margin-top: 5px;
 }
 .bottombar__btn > button:nth-child(2).active ~ .activeBtn {
   transform: translateX(calc(100% * 1));

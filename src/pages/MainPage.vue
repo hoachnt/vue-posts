@@ -13,17 +13,18 @@ import { useStore } from "vuex";
 import footerVue from "@/components/footer.vue";
 export default {
   components: {
-    footerVue
+    footerVue,
   },
   name: "MainPage",
   setup() {
     const message = ref("Welcome !");
     const router = useRouter();
     const store = useStore();
+    const userData = JSON.parse(localStorage.getItem("userData"));
 
     onMounted(async () => {
       try {
-        let user = await axios.get(
+        let users = await axios.get(
           "https://b876ad7f-dd71-4ed3-829a-b2488d40b627.selcdn.net/users",
           {
             headers: {
@@ -31,8 +32,14 @@ export default {
             },
           }
         );
-        console.log(user.data.data)
+
         await store.dispatch("post/authTrue");
+
+        const getUserData = users.data.data.filter(
+          (user) => userData.email === user.email
+        );
+
+        message.value = `Welcome ${getUserData[0].email} !`
       } catch (error) {
         router.push("/register");
       }
