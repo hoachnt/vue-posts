@@ -117,6 +117,9 @@ export default {
                 title: post.title,
                 image: responseData[responseData.length - 1].id,
                 body: post.body,
+                headers: {
+                  Authorization: `Bearer ${localStorage.getItem("token")}`,
+                },
               })
               .then(() => this.posts.unshift(post))
               .then(() => {
@@ -161,8 +164,7 @@ export default {
       // searchedPosts: "post/searchedPosts",
     }),
   },
-  mounted() {
-  },
+  mounted() {},
 };
 </script>
 
