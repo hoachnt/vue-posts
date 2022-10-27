@@ -14,7 +14,6 @@ const routes = [
   },
   {
     path: "/posts",
-    meta: { auth: true },
     component: PostPage,
     name: "posts",
   },

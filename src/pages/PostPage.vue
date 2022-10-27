@@ -18,7 +18,7 @@
           <post-form @create="createPost" />
         </my-dialog>
       </transition>
-      <my-header :header="'Posts from users'"/>
+      <my-header :header="'Posts from users'" />
       <transition mode="out-in">
         <post-list
           :posts="searchedPosts"
@@ -93,7 +93,6 @@ export default {
   methods: {
     ...mapActions({
       // loadMorePosts: "post/loadMorePosts",
-      authTrue: "post/authTrue",
     }),
     ...mapMutations({
       setPage: "post/setPage",
@@ -138,7 +137,11 @@ export default {
     removePost(post) {
       this.posts = this.posts.filter((p) => p.id !== post.id);
 
-      return axios.delete(`${this.serverUrl}/items/posts/${post.id}`);
+      return axios.delete(`${this.serverUrl}/items/posts/${post.id}`, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      });
     },
     showDialog() {
       this.dialogVisible = true;
@@ -159,7 +162,6 @@ export default {
     }),
   },
   mounted() {
-    this.authTrue();
   },
 };
 </script>

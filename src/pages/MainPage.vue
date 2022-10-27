@@ -25,12 +25,7 @@ export default {
     onMounted(async () => {
       try {
         let users = await axios.get(
-          "https://b876ad7f-dd71-4ed3-829a-b2488d40b627.selcdn.net/users",
-          {
-            headers: {
-              Authorization: `Bearer ${localStorage.getItem("token")}`,
-            },
-          }
+          "https://b876ad7f-dd71-4ed3-829a-b2488d40b627.selcdn.net/users"
         );
 
         await store.dispatch("post/authTrue");
@@ -39,7 +34,7 @@ export default {
           (user) => userData.email === user.email
         );
 
-        message.value = `Welcome ${getUserData[0].first_name} ${getUserData[0].last_name} !`
+        message.value = `Welcome ${getUserData[0].first_name} ${getUserData[0].last_name} !`;
       } catch (error) {
         router.push("/register");
       }

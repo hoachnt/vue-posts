@@ -33,18 +33,32 @@
 import { useRouter } from "vue-router";
 import { useStore } from "vuex";
 import { computed } from "@vue/runtime-core";
+import axios from "axios";
 export default {
   setup() {
     const router = useRouter();
     const store = useStore();
     const auth = computed(() => store.state.post.authenticated);
 
-    const logOut = () => {
-      localStorage.clear();
+    // const logOut = () => {
 
-      store.dispatch("post/authFalse");
+    // };
+    const logOut = async () => {
+      try {
+        let response = await axios.post(
+          "https://b876ad7f-dd71-4ed3-829a-b2488d40b627.selcdn.net/auth/logout",
+          {
+            refresh_token: localStorage.getItem("refresh_token"),
+          }
+        );
+        localStorage.clear();
 
-      router.push("/register");
+        store.dispatch("post/authFalse");
+
+        router.push("/register");
+      } catch (error) {
+        alert(error);
+      }
     };
 
     return {
