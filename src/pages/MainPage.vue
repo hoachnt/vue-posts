@@ -1,7 +1,6 @@
 <template lang="">
   <div class="container">
-    <h1 class="text-4xl text-center">{{message}}</h1>
-    <p class="text-center mt-5">Here you can see posts from other people</p>
+    <my-3d-card :greeting="message"/>
     <footer-vue />
   </div>
 </template>
@@ -11,6 +10,7 @@ import axios from "axios";
 import { useRouter } from "vue-router";
 import { useStore } from "vuex";
 import footerVue from "@/components/footer.vue";
+
 export default {
   components: {
     footerVue,

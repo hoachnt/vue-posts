@@ -94,7 +94,6 @@ export default {
   z-index: 1;
   color: var(--main-text-color);
   margin: 10px 0;
-  border: 1px solid #3e3c3c;
   user-select: none;
   border-radius: 10px;
   background: var(--white-color);
