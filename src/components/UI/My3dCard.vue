@@ -1,6 +1,6 @@
 <template>
   <div class="flex justify-center items-center mt-10">
-    <div class="bg-gray-900 max-w-xl p-5 rounded-lg shadow-2xl cursor-pointer" id="tilt" @click="$router.push('/posts')">
+    <div class="bg-gray-900 max-w-xl p-5 rounded-lg shadow-2xl cursor-pointer waves-effect waves-light" id="tilt" @click="$router.push('/posts')">
       <h1 class="text-4xl text-center mb-5">{{greeting}}</h1>
       <img
         src="../../assets/it-img.webp"
