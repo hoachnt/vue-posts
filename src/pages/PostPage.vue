@@ -118,7 +118,7 @@ export default {
             let responseData = response.data.data;
 
             return axios({
-              method: 'post',
+              method: "post",
               headers: {
                 Authorization: `Bearer ${localStorage.getItem("token")}`,
               },
@@ -146,13 +146,17 @@ export default {
       return axios.post(`${this.serverUrl}/files`, formData);
     },
     removePost(post) {
-      this.posts = this.posts.filter((p) => p.id !== post.id);
+      try {
+        this.posts = this.posts.filter((p) => p.id !== post.id);
 
-      return axios.delete(`${this.serverUrl}/items/posts/${post.id}`, {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
-        },
-      });
+        return axios.delete(`${this.serverUrl}/items/posts/${post.id}`, {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        });
+      } catch (error) {
+        alert('You are not registered')
+      }
     },
     showDialog() {
       this.dialogVisible = true;

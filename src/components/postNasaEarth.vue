@@ -54,7 +54,6 @@ export default {
 .post {
   margin: 10px 0;
   margin-bottom: 80px !important;
-  border: 1px solid #3e3c3c;
   padding: 15px;
   border-radius: 10px;
   display: flex;
