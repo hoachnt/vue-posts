@@ -12,7 +12,7 @@
       <my-button @click="$router.push('/about')" class="waves-effect waves-light">About</my-button>
       <div class="activeBtn"></div>
     </div>
-    <button @click="logOut" v-if="auth" class="log-out text-white border-2 border-rose-700 w-40 h-12 ml-2 mr-4 rounded-md font-semibold transition ease-in-out duration-150 hover:w-60">
+    <button @click="logOut" v-if="auth" class="log-out text-white border-2 border-rose-700 w-40 h-12 ml-2 mr-4 font-semibold transition ease-in-out duration-150 hover:w-60 rounded-[10px] waves-effect waves-light">
       Log out
       <font-awesome-icon icon="fa-solid fa-right-from-bracket" class="ml-2"/>
     </button>
