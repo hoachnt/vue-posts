@@ -5,7 +5,7 @@
       @click="$router.push('/')"
       class="icon"
     >
-    <img src="./logo.png" alt="" class="logo">
+    <img src="../../../public/img/icons/logo.png" alt="" class="logo">
     </div>
     <div class="navbar__btn" v-show="auth">
       <my-button @click="$router.push('/posts')" class="waves-effect waves-light">Posts</my-button>
