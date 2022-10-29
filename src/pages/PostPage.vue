@@ -13,11 +13,16 @@
         />
       </div>
       <post-nasa-earth />
-      <transition name="modal-show">
-        <my-dialog v-model:show="dialogVisible" style="will-change: transform">
-          <post-form @create="createPost" />
-        </my-dialog>
-      </transition>
+      <teleport to="body">
+        <transition name="modal-show">
+          <my-dialog
+            v-model:show="dialogVisible"
+            style="will-change: transform"
+          >
+            <post-form @create="createPost" />
+          </my-dialog>
+        </transition>
+      </teleport>
       <my-header :header="'Posts from users'" />
       <transition mode="out-in">
         <post-list
@@ -112,15 +117,18 @@ export default {
           .then((response) => {
             let responseData = response.data.data;
 
-            return axios
-              .post(`${this.serverUrl}/items/posts`, {
+            return axios({
+              method: 'post',
+              headers: {
+                Authorization: `Bearer ${localStorage.getItem("token")}`,
+              },
+              url: `${this.serverUrl}/items/posts`,
+              data: {
                 title: post.title,
                 image: responseData[responseData.length - 1].id,
                 body: post.body,
-                headers: {
-                  Authorization: `Bearer ${localStorage.getItem("token")}`,
-                },
-              })
+              },
+            })
               .then(() => this.posts.unshift(post))
               .then(() => {
                 document.location.reload(true);
