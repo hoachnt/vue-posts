@@ -26,7 +26,7 @@ export default {
 </script>
 <style>
 .header-text {
-  background: rgba(255, 255, 255, 0.1);
+  background: var(--white-color);
   min-width: 100%;
   display: inline-block;
   padding: 20px;

@@ -1,7 +1,7 @@
 <template>
   <div class="flex justify-center items-center min-h-screen container">
     <form
-      class="flex flex-col bg-gray-900 p-5 rounded-xl w-96"
+      class="flex flex-col bg-gray-900 p-5 rounded-xl w-96 login-form"
       @submit.prevent="submit"
     >
       <h1 class="text-4xl mb-5">Log in</h1>
@@ -74,5 +74,8 @@ export default {
 }
 .btn-register:hover {
   min-width: 100%;
+}
+.login-form {
+  background: var(--white-color);
 }
 </style>

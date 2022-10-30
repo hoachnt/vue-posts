@@ -115,7 +115,7 @@ export default {
   position: relative;
   z-index: 1;
   min-height: 50px;
-  color: rgb(41, 151, 255);
+  color: var(--main-text-color);
 }
 .navbar__btn > button:hover {
   box-shadow: none;
@@ -128,8 +128,8 @@ export default {
   left: 0;
   min-height: 100%;
   min-width: 48%;
-  background: rgb(26, 92, 255);
   border-radius: 10px;
+  background: var(--white-color);
   transition: 0.3s ease-in-out;
   opacity: 0;
 }

@@ -30,7 +30,7 @@ export default {
             this.root.style.setProperty("--dark-background-color", "#fff");
             this.root.style.setProperty("--main-text-color", "#fff");
             this.root.style.setProperty("--white-text-color", "#000");
-            this.root.style.setProperty("--white-color", "#202124");
+            this.root.style.setProperty("--white-color", "#161617");
             this.root.style.setProperty("--main-button-color", "#2EE59D");
             this.root.style.setProperty("--delete-color", "#fa0b5b");
             this.root.style.setProperty(
