@@ -21,7 +21,7 @@
       />
       <p class="text-xl">
         Here you can see other people's posts and learn something new from the
-        world. This web application was created for everyone
+        world.
       </p>
       <p class="text-xl mt-3">This web application was created for everyone</p>
     </div>
