@@ -69,9 +69,12 @@ export default {
       };
     },
     canClickBtn() {
-      let myInput = document.querySelector(".input-modal");
+      this.file = document.getElementById("file");
 
-      if (myInput.value.length >= 1) return this.createPost();
+      let myInput = document.querySelector(".input-modal");
+      if (this.file.files[0] == undefined) alert("Please choose a file");
+      if (myInput.value.length >= 1 && this.file.files[0] != undefined)
+        return this.createPost();
     },
   },
   mounted() {},

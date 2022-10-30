@@ -25,9 +25,14 @@ export default {
     onMounted(async () => {
       try {
         let users = await axios.get(
-          "https://b876ad7f-dd71-4ed3-829a-b2488d40b627.selcdn.net/users"
+          "https://b876ad7f-dd71-4ed3-829a-b2488d40b627.selcdn.net/users",
+          {
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem("token")}`,
+            },
+          }
         );
-
+        
         await store.dispatch("post/authTrue");
 
         const getUserData = users.data.data.filter(
