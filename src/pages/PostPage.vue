@@ -77,7 +77,7 @@ export default {
       meta,
       serverUrl,
       loadMorePosts,
-    } = usePosts(5);
+    } = usePosts(10);
     const { selectedSort, sortedPosts } = useSortedPosts(posts);
     const { searchQuery, searchedPosts } = useSearchedPosts(sortedPosts);
 

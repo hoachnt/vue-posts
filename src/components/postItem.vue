@@ -32,11 +32,11 @@
             @click="$router.push(`/posts/${post.id}`)"
             >Read More</my-button
           >
-          <!-- <my-button
+          <my-button
             class="btn-delete-post post-button"
             @click="$emit('remove', post)"
             >Remove</my-button
-          > -->
+          >
         </div>
       </div>
     </transition>
