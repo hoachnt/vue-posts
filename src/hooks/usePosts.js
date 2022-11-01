@@ -46,7 +46,7 @@ export default function usePosts(limit) {
             limit: limit,
           },
         });
-  
+
         posts.value = await [...posts.value, ...response.data.data.reverse()];
       }
     } catch (error) {

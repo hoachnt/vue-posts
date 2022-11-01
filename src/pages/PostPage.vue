@@ -37,12 +37,6 @@
         </div>
       </transition>
       <div v-intersection="loadMorePosts" class="observer"></div>
-      <!-- <div class="page__wrapper">
-        <post-pages :pages="totalPages" :page="page" @change="changePage" />
-      </div> -->
-      <!-- <my-button class="dark-light-btn" @click="dark = !dark"
-        >Change Theme</my-button
-      > -->
     </div>
   </transition>
 </template>

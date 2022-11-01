@@ -19,9 +19,6 @@ export default {
     this.root = document.documentElement;
   },
   watch: {
-    // page() {
-    //   this.fetchPosts();
-    // },
     dark: {
       handler: function () {
         this.$nextTick(() => {
